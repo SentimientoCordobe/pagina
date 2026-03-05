@@ -184,7 +184,7 @@ export const calendario: Jornada[] = [
   { jornada: 22, rival: "Málaga", fecha: "18 Ene 2026", resultado: "0-1", local: true, estado: "derrota" },
   { jornada: 23, rival: "Las Palmas", fecha: "24 Ene 2026", resultado: "1-2", local: false, estado: "victoria" },
   { jornada: 24, rival: "Valladolid", fecha: "31 Ene 2026", resultado: "3-1", local: true, estado: "victoria" },
-  { jornada: 25, rival: "Ceuta", fecha: "25 Feb 2026", resultado: "3-2", local: false, estado: "derota" },
+  { jornada: 25, rival: "Ceuta", fecha: "Feb 2026", resultado: "3-2", local: false, estado: "derota" },
   { jornada: 26, rival: "Leganés", fecha: "14 Feb 2026", resultado: "2-1", local: true, estado: "victoria" },
   { jornada: 27, rival: "Almería", fecha: "21 Feb 2026", resultado: "2-1", local: false, estado: "derrota" },
   { jornada: 28, rival: "FC Andorra", fecha: "2 Mar 2026", resultado: "1-4", local: true, estado: "derrota" },
