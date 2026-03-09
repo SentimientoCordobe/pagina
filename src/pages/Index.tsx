@@ -146,9 +146,9 @@ export default function Index() {
               Redes Sociales
             </h3>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <p>🐦 Twitter: <href>@SentCordoba</href></p>
-              <p>📸 Instagram: @sentimientocordobe</p>
-              <p>📺 YouTube: Sentimiento Cordobé</p>
+              <p>🐦 X: @Sent_Cordobe <link>https://x.com/Sent_Cordobe</link></p>
+              <p>📸 Instagram: @sentimientocordobe<link>https://www.instagram.com/sentimiento_cordobe/?hl=es</link></p>
+              <p>📺 YouTube: Sentimiento Cordobé <link>https://www.youtube.com/@SentimientoCordobe</link></p>
             </div>
           </div>
         </aside>
