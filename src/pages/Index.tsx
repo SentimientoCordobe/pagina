@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Calendar, Trophy } from "lucide-react";
+import { FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import { noticias, clasificacion, calendario } from "../data/mockData";
 
 export default function Index() {
@@ -145,10 +146,46 @@ export default function Index() {
             <h3 className="mb-3 font-display text-sm font-bold uppercase tracking-wider text-secondary">
               Redes Sociales
             </h3>
+
             <div className="space-y-2 text-sm text-muted-foreground">
-              <p>🐦 X: @Sent_Cordobe <link>https://x.com/Sent_Cordobe</link></p>
-              <p>📸 Instagram: @sentimientocordobe<link>https://www.instagram.com/sentimiento_cordobe/?hl=es</link></p>
-              <p>📺 YouTube: Sentimiento Cordobé <link>https://www.youtube.com/@SentimientoCordobe</link></p>
+              <p>
+                <a
+                  href="https://x.com/Sent_Cordobe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-secondary"
+                  aria-label="Abrir X - Sent_Cordobe (se abre en pestaña nueva)"
+                >
+                  <FaTwitter size={18} aria-hidden="true" />
+                  <span className="underline">@Sent_Cordobe</span>
+                </a>
+              </p>
+
+              <p>
+                <a
+                  href="https://www.instagram.com/sentimiento_cordobe/?hl=es"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-secondary"
+                  aria-label="Abrir Instagram - sentimientocordobe (se abre en pestaña nueva)"
+                >
+                  <FaInstagram size={18} aria-hidden="true" />
+                  <span className="underline">@sentimientocordobe</span>
+                </a>
+              </p>
+
+              <p>
+                <a
+                  href="https://www.youtube.com/@SentimientoCordobe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-secondary"
+                  aria-label="Abrir YouTube - Sentimiento Cordobé (se abre en pestaña nueva)"
+                >
+                  <FaYoutube size={18} aria-hidden="true" />
+                  <span className="underline">Sentimiento Cordobé</span>
+                </a>
+              </p>
             </div>
           </div>
         </aside>
