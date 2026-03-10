@@ -104,8 +104,8 @@ export interface EquipoClasificacion {
 
 export const clasificacion: EquipoClasificacion[] = [
   { posicion: 1, equipo: "Racing Santander", puntos: 56, pj: 29, pg: 17, pe: 5, pp: 7, gf: 60, gc: 39, dg: 21 },
-  { posicion: 2, equipo: "CD Castellón", puntos: 49, pj: 29, pg: 14, pe: 7, pp: 8, gf: 48, gc: 33, dg: 15 },
-  { posicion: 3, equipo: "Almería", puntos: 49, pj: 28, pg: 14, pe: 7, pp: 7, gf: 53, gc: 40, dg: 13 },
+  { posicion: 2, equipo: "Almería", puntos: 52, pj: 29, pg: 15, pe: 7, pp: 7, gf: 56, gc: 40, dg: 16 },
+  { posicion: 3, equipo: "CD Castellón", puntos: 49, pj: 29, pg: 14, pe: 7, pp: 8, gf: 48, gc: 33, dg: 15 },
   { posicion: 4, equipo: "Deportivo", puntos: 49, pj: 29, pg: 14, pe: 7, pp: 8, gf: 44, gc: 33, dg: 11 },
   { posicion: 5, equipo: "Las Palmas", puntos: 48, pj: 29, pg: 12, pe: 12, pp: 5, gf: 38, gc: 22, dg: 16 },
   { posicion: 6, equipo: "Málaga", puntos: 48, pj: 29, pg: 14, pe: 6, pp: 9, gf: 44, gc: 34, dg: 10 },
