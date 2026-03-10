@@ -17,7 +17,7 @@ export const noticias: Noticia[] = [
     destacada: true,
   },
   {
-    id: 1,
+    id: 2,
     titulo: "Orgullo sin premio en casa del líder",
     resumen: "El Córdoba planta cara al líder, pero vuelve a caer",
     imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/333161dd-1faa-4320-8985-5be1b4121d71-403.jpg",
@@ -25,7 +25,7 @@ export const noticias: Noticia[] = [
     destacada: true,
   },
   {
-    id: 2,
+    id: 3,
     titulo: "El Córdoba planta cara al Racing, pero vuelve a caer (4-3) ",
     resumen: "El Córdoba planta cara al Racing, pero vuelve a caer",
     imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/52a08d76-280f-4238-bead-07b4b1905e22-299.jpg",
@@ -40,7 +40,7 @@ export const noticias: Noticia[] = [
     fecha: "9 Mar 2026",
   },
   {
-    id: 4,
+    id: 5,
     titulo: "El Arcángel será clave",
     resumen: "El Arcángel será clave para romper la mala racha ante la Real Sociedad B",
     imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/03/xlarge/e6720434-2fd9-4fbc-aaff-429cf724813d-140.JPG",
@@ -53,7 +53,7 @@ export interface Jugador {
   nombre: string;
   posicion: string;
   dorsal: number;
-  grupo: "Porteros" | "Defensas" | "Centrocampistas" | "Delanteros";
+  grupo: "Porteros" | "Defensas" | "Mediocentros" | "Delanteros";
   foto: string;
 }
 
