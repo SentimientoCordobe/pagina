@@ -1,6 +1,8 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+<Route path="/noticias/:slug" element={<Noticia />} />
+
 
 export default function Layout() {
   return (

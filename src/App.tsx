@@ -12,6 +12,8 @@ import Calendario from "./pages/Calendario";
 import Partidos from "./pages/Partidos";
 import Tienda from "./pages/Tienda";
 import NotFound from "./pages/NotFound";
+import Noticia from "./pages/Noticia";
+
 
 const queryClient = new QueryClient();
 

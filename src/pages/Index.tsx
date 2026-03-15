@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Calendar, Trophy } from "lucide-react";
 import { FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import { noticias, clasificacion, calendario } from "../data/mockData";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   const destacadas = noticias.filter((n) => n.destacada);
@@ -34,9 +35,11 @@ export default function Index() {
                 <span className="mb-2 inline-block rounded bg-secondary px-2 py-1 font-display text-xs font-bold uppercase text-secondary-foreground">
                   Destacada
                 </span>
-                <h2 className="font-display text-2xl font-bold leading-tight text-card md:text-3xl">
-                  {destacadas[slide].titulo}
-                </h2>
+                <Link to={`/noticias/${destacadas[slide].slug}`}>
+  <h2 className="font-display text-2xl font-bold leading-tight text-card md:text-3xl hover:text-secondary">
+    {destacadas[slide].titulo}
+  </h2>
+</Link>
                 <p className="mt-1 text-sm text-card/80">{destacadas[slide].fecha}</p>
               </div>
             </div>
@@ -63,9 +66,8 @@ export default function Index() {
                 <button
                   key={i}
                   onClick={() => setSlide(i)}
-                  className={`h-2 w-2 rounded-full transition-colors ${
-                    i === slide ? "bg-secondary" : "bg-card/50"
-                  }`}
+                  className={`h-2 w-2 rounded-full transition-colors ${i === slide ? "bg-secondary" : "bg-card/50"
+                    }`}
                   aria-label={`Ir a noticia ${i + 1}`}
                 />
               ))}
@@ -80,29 +82,31 @@ export default function Index() {
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {secundarias.map((n) => (
-                <article
-                  key={n.id}
-                  className="group overflow-hidden rounded-lg border bg-card shadow-sm transition-shadow hover:shadow-md"
-                >
-                  <div className="aspect-[16/10] overflow-hidden">
-                    <img
-                      src={n.imagen}
-                      alt={n.titulo}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
+                <Link key={n.id} to={`/noticias/${n.slug}`}>
+                  <article className="group overflow-hidden rounded-lg border bg-card shadow-sm transition-shadow hover:shadow-md">
 
-                  <div className="p-4">
-                    <p className="mb-1 text-xs font-semibold text-secondary">{n.fecha}</p>
-                    <h3 className="font-display text-base font-bold leading-snug text-card-foreground">
-                      {n.titulo}
-                    </h3>
-                    <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
-                      {n.resumen}
-                    </p>
-                  </div>
-                </article>
-              ))}
+                    key={n.id}
+                    className="group overflow-hidden rounded-lg border bg-card shadow-sm transition-shadow hover:shadow-md"
+                >
+                    <div className="aspect-[16/10] overflow-hidden">
+                      <img
+                        src={n.imagen}
+                        alt={n.titulo}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+
+                    <div className="p-4">
+                      <p className="mb-1 text-xs font-semibold text-secondary">{n.fecha}</p>
+                      <h3 className="font-display text-base font-bold leading-snug text-card-foreground">
+                        {n.titulo}
+                      </h3>
+                      <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
+                        {n.resumen}
+                      </p>
+                    </div>
+                  </article>
+                </Link>))}
             </div>
           </section>
         </div>
@@ -148,9 +152,8 @@ export default function Index() {
                 {top5.map((e) => (
                   <tr
                     key={e.posicion}
-                    className={`border-b last:border-0 ${
-                      e.esCordoba ? "bg-primary/10 font-bold" : ""
-                    }`}
+                    className={`border-b last:border-0 ${e.esCordoba ? "bg-primary/10 font-bold" : ""
+                      }`}
                   >
                     <td className="py-1.5">{e.posicion}</td>
                     <td className="py-1.5">{e.equipo}</td>
@@ -218,7 +221,7 @@ export default function Index() {
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path d="M9 3v12.5a3.5 3.5 0 1 1-3.5-3.5h1V9h-1A6.5 6.5 0 1 0 12 15.5V8.8c1.1.9 2.5 1.4 4 1.4V7.2c-1.2 0-2.3-.5-3.1-1.3A4.5 4.5 0 0 1 11.5 3H9z"/>
+                    <path d="M9 3v12.5a3.5 3.5 0 1 1-3.5-3.5h1V9h-1A6.5 6.5 0 1 0 12 15.5V8.8c1.1.9 2.5 1.4 4 1.4V7.2c-1.2 0-2.3-.5-3.1-1.3A4.5 4.5 0 0 1 11.5 3H9z" />
                   </svg>
                   <span className="underline">@sentimiento_cordobe</span>
                 </a>
