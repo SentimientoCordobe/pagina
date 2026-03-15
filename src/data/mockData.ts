@@ -5,6 +5,7 @@ export interface Noticia {
   resumen: string;
   imagen: string;
   fecha: string;
+  contenido: string;
   destacada?: boolean;
 }
 
@@ -16,6 +17,7 @@ export const noticias: Noticia[] = [
     resumen: "Los fallos defensivos nos volvieron a condenar",
     imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/75cd27cb-74ae-40d3-8e4f-1248a0b2c1e9-539.jpg",
     fecha: "9 Mar 2026",
+    contenido: "Desarrollo noticia",
     destacada: true,
   },
   {
@@ -25,6 +27,7 @@ export const noticias: Noticia[] = [
     resumen: "El Córdoba planta cara al líder, pero vuelve a caer",
     imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/333161dd-1faa-4320-8985-5be1b4121d71-403.jpg",
     fecha: "8 Mar 2026",
+    contenido: "Desarrollo noticia",
     destacada: true,
   },
   {
@@ -34,6 +37,7 @@ export const noticias: Noticia[] = [
     resumen: "El Córdoba planta cara al Racing, pero vuelve a caer",
     imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/52a08d76-280f-4238-bead-07b4b1905e22-299.jpg",
     fecha: "8 Mar 2026",
+    contenido: "Desarrollo noticia",
     destacada: true,
   },
   {
@@ -43,6 +47,7 @@ export const noticias: Noticia[] = [
     resumen: "El Córdoba encadena su peor racha con Iván Ania al mando",
     imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/c0d1be71-9acd-4ea3-bb33-7c44cfc75b30-452.jpg",
     fecha: "9 Mar 2026",
+    contenido: "Desarrollo noticia",
   },
   {
     id: 5,
@@ -51,6 +56,7 @@ export const noticias: Noticia[] = [
     resumen: "El Arcángel será clave para romper la mala racha ante la Real Sociedad B",
     imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/03/xlarge/e6720434-2fd9-4fbc-aaff-429cf724813d-140.JPG",
     fecha: "9 Mar 2026",
+    contenido: "Desarrollo noticia",
   },
 ];
 

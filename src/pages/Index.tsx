@@ -87,7 +87,7 @@ export default function Index() {
 
                     key={n.id}
                     className="group overflow-hidden rounded-lg border bg-card shadow-sm transition-shadow hover:shadow-md"
-                >
+                
                     <div className="aspect-[16/10] overflow-hidden">
                       <img
                         src={n.imagen}
