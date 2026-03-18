@@ -196,6 +196,14 @@ export interface Partido {
 
 export const partidos: Partido[] = [
   {
+    rival: "Real Sociedad B",
+    resultado: "0-2",
+    fecha: "15 Mar 2026",
+    youtube: "https://youtu.be/Yxoqnr0qjjE?si=PIWKDqouKTuEw118",
+    miniatura: "https://cordobadeporte.com/wp-content/uploads/2026/03/fuentes-real-sociedad.jpg",
+    local: true,
+  },
+  {
     rival: "Racing de Santander",
     resultado: "4-3",
     fecha: "8 Mar 2026",
