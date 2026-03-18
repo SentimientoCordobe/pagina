@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 // Iconos
 import { ChevronLeft, ChevronRight, Calendar, Trophy } from "lucide-react";
-import { FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 
 // Datos simulados (noticias, clasificación y calendario)
 import { noticias, clasificacion, calendario } from "../data/mockData";
@@ -272,6 +272,13 @@ export default function Index() {
                 className="flex items-center gap-2 hover:text-secondary"
               >
                 <FaYoutube /> Sentimiento Cordobé
+              </a>
+               <a
+                href="https://www.tiktok.com/@sentimiento_cordobe"
+                target="_blank"
+                className="flex items-center gap-2 hover:text-secondary"
+              >
+                <FaTiktok /> @sentimiento_cordobe
               </a>
 
             </div>
