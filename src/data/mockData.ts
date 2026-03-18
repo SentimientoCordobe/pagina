@@ -12,12 +12,16 @@ export interface Noticia {
 export const noticias: Noticia[] = [
   {
     id: 1,
-    slug: "Los-fallos-defensivos-vuelven-a-penalizar-al-Córdoba",
-    titulo: "Los fallos defensivos vuelven a penalizar al Córdoba",
-    resumen: "Los fallos defensivos nos volvieron a condenar",
+    slug: "El-Córdoba-encadena-5-derrotas-consecutivas",
+    titulo: "El-Córdoba-encadena-5-derrotas-consecutivas",
+    resumen: "El-Córdoba-encadena-5-derrotas-consecutivas",
     imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/75cd27cb-74ae-40d3-8e4f-1248a0b2c1e9-539.jpg",
     fecha: "9 Mar 2026",
-    contenido: "Desarrollo noticia",
+    contenido: "El Córdoba Club de Fútbol atraviesa su momento más delicado de la temporada tras encadenar cinco derrotas consecutivas, una racha negativa que ha encendido las alarmas en el entorno blanquiverde. La última caída llegó este domingo en El Arcángel, donde el conjunto cordobesista cayó por 0-2 ante la Real Sociedad B.
+Más allá del resultado, el partido dejó un dato que refleja a la perfección la falta de acierto del equipo: el Córdoba fue el conjunto con más disparos de toda la jornada 30 en Segunda División, con un total de 27 intentos, de los cuales 6 fueron a portería. Sin embargo, esa insistencia ofensiva no se tradujo en goles ni en puntos, evidenciando uno de los grandes problemas actuales del equipo: la falta de efectividad.
+Una vez más, penalizó la falta de puntería y la fragilidad en momentos clave. Por su parte, el filial txuri-urdin supo aprovechar sus oportunidades para llevarse los tres puntos.
+Con esta nueva derrota, el Córdoba firma la peor racha de resultados desde la llegada de Iván Ania, tanto en su etapa en el club como en su trayectoria como entrenador. Una dinámica preocupante que obliga al equipo a reaccionar cuanto antes y que generá inquietud entre la afición.
+",
     destacada: true,
   },
   {
