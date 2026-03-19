@@ -16,8 +16,7 @@ export const noticias: Noticia[] = [
     titulo: "El Córdoba encadena 5 derrotas consecutivas",
     resumen:
       "El Córdoba atraviesa su peor momento de la temporada tras cinco derrotas seguidas.",
-    imagen:
-      "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/75cd27cb-74ae-40d3-8e4f-1248a0b2c1e9-539.jpg",
+    imagen: "https://www.canalsur.es/resources/archivos_offline/2026/3/15/1773587172439cordoba1.jpg",
     fecha: "9 Mar 2026",
     contenido: `El Córdoba Club de Fútbol atraviesa su momento más delicado de la temporada tras encadenar cinco derrotas consecutivas, una racha negativa que ha encendido las alarmas en el entorno blanquiverde.
 
