@@ -8,25 +8,28 @@ export interface Noticia {
   contenido: string;
   destacada?: boolean;
 }
+
 export const noticias: Noticia[] = [
   {
     id: 1,
     slug: "cordoba-encadena-5-derrotas-consecutivas",
     titulo: "El Córdoba encadena 5 derrotas consecutivas",
-    resumen: "El Córdoba atraviesa su peor momento de la temporada tras cinco derrotas seguidas.",
-    imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/75cd27cb-74ae-40d3-8e4f-1248a0b2c1e9-539.jpg",
+    resumen:
+      "El Córdoba atraviesa su peor momento de la temporada tras cinco derrotas seguidas.",
+    imagen:
+      "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/75cd27cb-74ae-40d3-8e4f-1248a0b2c1e9-539.jpg",
     fecha: "9 Mar 2026",
     contenido: `El Córdoba Club de Fútbol atraviesa su momento más delicado de la temporada tras encadenar cinco derrotas consecutivas, una racha negativa que ha encendido las alarmas en el entorno blanquiverde.
 
 La última caída llegó este domingo en El Arcángel, donde el conjunto cordobesista cayó por 0-2 ante la Real Sociedad B.
 
-Más allá del resultado, el partido dejó un dato que refleja a la perfección la falta de acierto del equipo: el Córdoba fue el conjunto con más disparos de toda la jornada 30 en Segunda División, con un total de 27 intentos, de los cuales 6 fueron a portería.
+Más allá del resultado, el partido dejó un dato que refleja la falta de acierto del equipo: el Córdoba fue el conjunto con más disparos de toda la jornada 30 en Segunda División, con un total de 27 intentos, de los cuales 6 fueron a portería.
 
 Sin embargo, esa insistencia ofensiva no se tradujo en goles ni en puntos, evidenciando uno de los grandes problemas actuales del equipo: la falta de efectividad.
 
 Una vez más penalizó la falta de puntería y la fragilidad en momentos clave. Por su parte, el filial txuri-urdin supo aprovechar sus oportunidades para llevarse los tres puntos.
 
-Con esta nueva derrota, el Córdoba firma la peor racha de resultados desde la llegada de Iván Ania, tanto en su etapa en el club como en su trayectoria como entrenador. Una dinámica preocupante que obliga al equipo a reaccionar cuanto antes y que genera inquietud entre la afición.`,
+Con esta nueva derrota, el Córdoba firma la peor racha de resultados desde la llegada de Iván Ania, tanto en su etapa en el club como en su trayectoria como entrenador.`,
     destacada: true,
   },
   {
@@ -34,11 +37,14 @@ Con esta nueva derrota, el Córdoba firma la peor racha de resultados desde la l
     slug: "orgullo-sin-premio-en-casa-del-lider",
     titulo: "Orgullo sin premio en casa del líder",
     resumen: "El Córdoba planta cara al líder, pero vuelve a caer.",
-    imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/333161dd-1faa-4320-8985-5be1b4121d71-403.jpg",
+    imagen:
+      "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/333161dd-1faa-4320-8985-5be1b4121d71-403.jpg",
     fecha: "8 Mar 2026",
     contenido: `El Córdoba CF mostró carácter y competitividad en su visita al campo del líder, pero finalmente regresó sin premio tras caer en un partido muy disputado.
 
-El conjunto blanquiverde compitió de tú a tú durante gran parte del encuentro y llegó a poner en apuros al rival con varias ocasiones claras. Sin embargo, pequeños detalles y la efectividad del líder terminaron decantando el partido.
+El conjunto blanquiverde compitió de tú a tú durante gran parte del encuentro y llegó a poner en apuros al rival con varias ocasiones claras.
+
+Sin embargo, pequeños detalles y la efectividad del líder terminaron decantando el partido.
 
 Pese a la derrota, el equipo dejó buenas sensaciones en cuanto a intensidad, actitud y capacidad para plantar cara a uno de los rivales más fuertes de la categoría.`,
     destacada: true,
@@ -47,12 +53,14 @@ Pese a la derrota, el equipo dejó buenas sensaciones en cuanto a intensidad, ac
     id: 3,
     slug: "cordoba-planta-cara-al-racing",
     titulo: "El Córdoba planta cara al Racing, pero vuelve a caer (4-3)",
-    resumen: "El Córdoba compite hasta el final, pero no logra evitar la derrota.",
-    imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/52a08d76-280f-4238-bead-07b4b1905e22-299.jpg",
+    resumen:
+      "El Córdoba compite hasta el final, pero no logra evitar la derrota.",
+    imagen:
+      "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/52a08d76-280f-4238-bead-07b4b1905e22-299.jpg",
     fecha: "8 Mar 2026",
     contenido: `El Córdoba CF protagonizó un partido vibrante ante el Racing en un encuentro lleno de goles y alternativas.
 
-Los blanquiverdes lucharon hasta el final y lograron mantenerse dentro del partido en todo momento, pero el conjunto rival terminó llevándose la victoria por 4-3 en un duelo muy abierto.
+Los blanquiverdes lucharon hasta el final y lograron mantenerse dentro del partido en todo momento, pero el conjunto rival terminó llevándose la victoria por 4-3.
 
 A pesar del resultado, el equipo mostró capacidad ofensiva y espíritu competitivo, aunque volvió a quedar patente la dificultad para cerrar los partidos y evitar errores defensivos en momentos clave.`,
     destacada: true,
@@ -62,7 +70,8 @@ A pesar del resultado, el equipo mostró capacidad ofensiva y espíritu competit
     slug: "cuatro-derrotas-consecutivas",
     titulo: "Cuatro derrotas consecutivas que pesan",
     resumen: "El Córdoba encadena su peor racha con Iván Ania al mando.",
-    imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/c0d1be71-9acd-4ea3-bb33-7c44cfc75b30-452.jpg",
+    imagen:
+      "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/c0d1be71-9acd-4ea3-bb33-7c44cfc75b30-452.jpg",
     fecha: "9 Mar 2026",
     contenido: `La racha negativa del Córdoba CF comienza a preocupar tanto al cuerpo técnico como a la afición.
 
@@ -74,8 +83,10 @@ Los resultados han frenado la progresión del equipo en la clasificación y obli
     id: 5,
     slug: "el-arcangel-sera-clave",
     titulo: "El Arcángel será clave",
-    resumen: "El estadio cordobés puede ser fundamental para romper la mala racha.",
-    imagen: "https://statics-maker.llt-services.com/cor/images/2026/03/03/xlarge/e6720434-2fd9-4fbc-aaff-429cf724813d-140.JPG",
+    resumen:
+      "El estadio cordobés puede ser fundamental para romper la mala racha.",
+    imagen:
+      "https://statics-maker.llt-services.com/cor/images/2026/03/03/xlarge/e6720434-2fd9-4fbc-aaff-429cf724813d-140.JPG",
     fecha: "9 Mar 2026",
     contenido: `El Córdoba CF afronta un nuevo partido en casa con la necesidad de cambiar la dinámica de resultados.
 
