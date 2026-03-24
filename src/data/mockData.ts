@@ -218,10 +218,11 @@ export const calendario: Jornada[] = [
   { jornada: 28, rival: "FC Andorra", fecha: "2 Mar 2026", resultado: "1-4", local: true, estado: "derrota" },
   { jornada: 29, rival: "Racing Santander", fecha: "8 Mar 2026", resultado: "4-3", local: false, estado: "derrota" },
   { jornada: 30, rival: "Real Sociedad B", fecha: "15 Mar 2026", resultado: "0-2", local: true, estado: "derrota" },
-  { jornada: 31, rival: "Burgos CF", fecha: "22 Mar 2026", hora: "18:00", local: false, estado: "pendiente" },
+  { jornada: 31, rival: "Burgos CF", fecha: "22 Mar 2026", resultado: "4-0", local: false, estado: "pendiente" },
   { jornada: 32, rival: "Mirandés", fecha: "27 Mar 2026", hora: "19:00", local: true, estado: "pendiente" },
   { jornada: 33, rival: "RC Deportivo", fecha: "31 Mar 2026", hora: "20:00", local: false, estado: "pendiente" },
   { jornada: 34, rival: "Cádiz", fecha: "04 Abr 2026", hora: "14:00", local: false, estado: "pendiente" },
+  { jornada: 35, rival: "Zaragoza", fecha: "11 Abr 2026", hora: "21:00", local: true, estado: "pendiente" },
 ];
 
 // ── Partidos (Resúmenes YouTube) ──
@@ -235,6 +236,14 @@ export interface Partido {
 }
 
 export const partidos: Partido[] = [
+   {
+    rival: "Burgos",
+    resultado: "4-0",
+    fecha: "22 Mar 2026",
+    youtube: "https://youtu.be/YL2fOS05_0s?si=EIeAeYN3O3NXPvMF",
+    miniatura: "https://static.grupojoly.com/clip/f6c9a8c9-76bd-4262-a773-3f5012a9e46d_source-aspect-ratio_1600w_0.webp",
+    local: false,
+  },
   {
     rival: "Real Sociedad B",
     resultado: "0-2",
