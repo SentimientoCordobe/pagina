@@ -19,7 +19,7 @@ export const noticias: Noticia[] = [
       " BAJAS seguras del Córdoba C.F. para el partido Córdoba-Mirandés.",
     imagen: "https://s1.abcstatics.com/abc/www/multimedia/espana/2025/04/21/cordobacf-carlos-marin-RR1uf35ljguTIvXDpqmXC0K-1200x840@diario_abc.jpg",    
     fecha: "26 Mar 2026",
-    contenido: `BAJAS seguras del #CórdobaCF para el #CórdobaMirandés (viernes, 19:00 h):
+    contenido: `BAJAS seguras del Córdoba C.F. para el Córdoba-Mirandés (viernes, 19:00 h):
 
 🏥 Lesión:
   - Carlos Marín.
@@ -39,11 +39,13 @@ Dani Requena.`,
       "Rueda de prensa de Iván Ania antes del partido contra el Mirandés, destacando la importancia de El Arcángel para romper la mala racha.",
     imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNH6v6h7kR6ww8rfImZZJBdAwjfMLf5WBBmQ&s",    
     fecha: "26 Mar 2026",
-    contenido: `El Córdoba CF afronta un nuevo partido en casa con la necesidad de cambiar la dinámica de resultados.
-
-El estadio de El Arcángel se presenta como un factor clave para que el equipo vuelva a sumar puntos y recupere la confianza.
-
-El apoyo de la afición será fundamental para impulsar al equipo y tratar de romper la mala racha que atraviesa el conjunto blanquiverde.`,
+    contenido: `En la rueda de prensa de esta mañana, el técnico cordobesista Iván Ania comentaba lo siguiente sobre el equipo: 
+    "Esta plantilla está diseñada para una manera de jugar. Seguiremos con nuestra con nuestra idea. No voy a a tirar todo 
+    lo que hicimos meses atrás y arrancar de cero. Eso no lo voy a hacer"
+    
+    Rueda de prensa completa: 
+    https://www.youtube.com/watch?v=ej4j34wxxUM`,
+   
     destacada: true,
 },
   {
