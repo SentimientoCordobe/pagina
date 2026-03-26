@@ -10,91 +10,114 @@ export interface Noticia {
 }
 
 export const noticias: Noticia[] = [
+  
   {
     id: 1,
-    slug: "cordoba-encadena-5-derrotas-consecutivas",
-    titulo: "El Córdoba encadena 5 derrotas consecutivas",
+    slug: "Bajas-Mirandes",
+    titulo: "Parte de bajas del Córdoba CF.",
     resumen:
-      "El Córdoba atraviesa su peor momento de la temporada tras cinco derrotas seguidas.",
-    imagen: "https://www.canalsur.es/resources/archivos_offline/2026/3/15/1773587172439cordoba1.jpg",
-    fecha: "15 Mar 2026",
-    contenido: `El Córdoba Club de Fútbol atraviesa su momento más delicado de la temporada tras encadenar cinco derrotas consecutivas, una racha negativa que ha encendido las alarmas en el entorno blanquiverde.
+      " BAJAS seguras del Córdoba C.F. para el partido Córdoba-Mirandés.",
+    imagen: "https://s1.abcstatics.com/abc/www/multimedia/espana/2025/04/21/cordobacf-carlos-marin-RR1uf35ljguTIvXDpqmXC0K-1200x840@diario_abc.jpg",    
+    fecha: "26 Mar 2026",
+    contenido: `BAJAS seguras del #CórdobaCF para el #CórdobaMirandés (viernes, 19:00 h):
 
-La última caída llegó este domingo en El Arcángel, donde el conjunto cordobesista cayó por 0-2 ante la Real Sociedad B.
+🏥 Lesión:
+  - Carlos Marín.
+  - Fomeyem.
+  - Juan María Alcedo.
+  - Trilli.
 
-Más allá del resultado, el partido dejó un dato que refleja la falta de acierto del equipo: el Córdoba fue el conjunto con más disparos de toda la jornada 30 en Segunda División, con un total de 27 intentos, de los cuales 6 fueron a portería.
-
-Sin embargo, esa insistencia ofensiva no se tradujo en goles ni en puntos, evidenciando uno de los grandes problemas actuales del equipo: la falta de efectividad.
-
-Una vez más penalizó la falta de puntería y la fragilidad en momentos clave. Por su parte, el filial txuri-urdin supo aprovechar sus oportunidades para llevarse los tres puntos.
-
-Con esta nueva derrota, el Córdoba firma la peor racha de resultados desde la llegada de Iván Ania, tanto en su etapa en el club como en su trayectoria como entrenador.`,
+🇪🇸 Selección
+Dani Requena.`,
     destacada: true,
-  },
+},
   {
     id: 2,
-    slug: "orgullo-sin-premio-en-casa-del-lider",
-    titulo: "Orgullo sin premio en casa del líder",
-    resumen: "El Córdoba planta cara al líder, pero vuelve a caer.",
-    imagen:
-      "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/333161dd-1faa-4320-8985-5be1b4121d71-403.jpg",
-    fecha: "8 Mar 2026",
-    contenido: `El Córdoba CF mostró carácter y competitividad en su visita al campo del líder, pero finalmente regresó sin premio tras caer en un partido muy disputado.
+    slug: "Rueda-de-prensa-Previa-Mirandes",
+    titulo: "Rueda de prensa de Iván Ania antes del partido contra el Mirandés",
+    resumen:
+      "Rueda de prensa de Iván Ania antes del partido contra el Mirandés, destacando la importancia de El Arcángel para romper la mala racha.",
+    imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNH6v6h7kR6ww8rfImZZJBdAwjfMLf5WBBmQ&s",    
+    fecha: "26 Mar 2026",
+    contenido: `El Córdoba CF afronta un nuevo partido en casa con la necesidad de cambiar la dinámica de resultados.
 
-El conjunto blanquiverde compitió de tú a tú durante gran parte del encuentro y llegó a poner en apuros al rival con varias ocasiones claras.
+El estadio de El Arcángel se presenta como un factor clave para que el equipo vuelva a sumar puntos y recupere la confianza.
 
-Sin embargo, pequeños detalles y la efectividad del líder terminaron decantando el partido.
-
-Pese a la derrota, el equipo dejó buenas sensaciones en cuanto a intensidad, actitud y capacidad para plantar cara a uno de los rivales más fuertes de la categoría.`,
+El apoyo de la afición será fundamental para impulsar al equipo y tratar de romper la mala racha que atraviesa el conjunto blanquiverde.`,
     destacada: true,
-  },
+},
   {
     id: 3,
-    slug: "cordoba-planta-cara-al-racing",
-    titulo: "El Córdoba planta cara al Racing, pero vuelve a caer (4-3)",
-    resumen:
-      "El Córdoba compite hasta el final, pero no logra evitar la derrota.",
+    slug: "Se-cumplen-13-años",
+    titulo: "Se cumplen 13 años sin nuestro Juanín se marchó.",
+    resumen: "El Córdoba planta cara al líder, pero vuelve a caer.",
     imagen:
-      "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/52a08d76-280f-4238-bead-07b4b1905e22-299.jpg",
-    fecha: "8 Mar 2026",
-    contenido: `El Córdoba CF protagonizó un partido vibrante ante el Racing en un encuentro lleno de goles y alternativas.
-
-Los blanquiverdes lucharon hasta el final y lograron mantenerse dentro del partido en todo momento, pero el conjunto rival terminó llevándose la victoria por 4-3.
-
-A pesar del resultado, el equipo mostró capacidad ofensiva y espíritu competitivo, aunque volvió a quedar patente la dificultad para cerrar los partidos y evitar errores defensivos en momentos clave.`,
+      "https://pbs.twimg.com/media/HEUzD3EWEAAMhEV?format=jpg&name=medium",
+    fecha: "26 Mar 2026",
+    contenido: `Se cumplen 13 años sin nuestro eterno número 8. Juanín se marchó en 2013 a los 72 años. El mejor jugador de la época más espléndida del equipo blanquiverde: es el 3º jugador con más partidos (317) y el 2º máximo goleador (77). 
+    Siempre en el recuerdo de la afición cordobesista. ¡Gracias por todo, Juanín!`,
     destacada: true,
   },
   {
     id: 4,
-    slug: "cuatro-derrotas-consecutivas",
-    titulo: "Cuatro derrotas consecutivas que pesan",
+    slug: "el-arcangel-sera-clave",
+    titulo: "El Arcángel será clave contra el Mirandes",
+    resumen:
+      "El estadio cordobés puede ser fundamental para romper la mala racha.",
+    imagen:"https://pbs.twimg.com/media/HDmtUX0XkAAeag2?format=jpg&name=medium",    
+    fecha: "26 Mar 2026",
+    contenido: `El Córdoba CF afronta un nuevo partido en casa con la necesidad de cambiar la dinámica de resultados.
+
+El estadio de El Arcángel se presenta como un factor clave para que el equipo vuelva a sumar puntos y recupere la confianza.
+
+El apoyo de la afición será fundamental para impulsar al equipo y tratar de romper la mala racha que atraviesa el conjunto blanquiverde.`,
+    destacada: true,
+  
+},
+{
+    id: 5,
+    slug: "Carlos-Isaac-en-Córdoba",
+    titulo: "Carlos Isaac, ha viajado desde Polonia hasta Córdoba ",
+    resumen:
+"Carlos Isaac, ha visitado la Ciudad Deportiva.",    
+    imagen: "https://scontent-mad2-1.cdninstagram.com/v/t51.82787-15/657340312_18107436373890780_5557225807238452499_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=Mzg2MDA0NTAwNzU5MjAyNTI2Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjk2MXg1MDMuc2RyLkMzIn0%3D&_nc_ohc=Ciz8D8MpdtQQ7kNvwG3UyzV&_nc_oc=AdoDJx7f-MncyRbgz1R7QZNbUlU-JdhaE5qcNP8xw8ouIOjRVQX8Oah5H2JjafP52p4&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mad2-1.cdninstagram.com&_nc_gid=4QUH4_xcJyhaHD-OkjiQkw&_nc_ss=7a32e&oh=00_Afx3UUr1tIHs_iGcocdfNi_vtmSIWoMzi-NI26Qoz-1n6Q&oe=69CAEA28",
+    fecha: "25 Mar 2026",
+    contenido: `Carlos Isaac, ha viajado desde Polonia hasta Córdoba para visitar a sus excompañeros y cuerpo técnico en la Ciudad Deportiva, mostrando su apoyo en un momento complicado.
+
+Se marchó este invierno tras el pago de su cláusula a la primera división polaca, pero su vínculo con el club sigue intacto. Gran gesto de alguien que no olvida este escudo @carlosisaac__ 💪🏽🤍💚`,
+  },
+  {
+    id: 6,
+    slug: "seis-derrotas-consecutivas",
+    titulo: "Seis derrotas consecutivas que pesan",
     resumen: "El Córdoba encadena su peor racha con Iván Ania al mando.",
     imagen:
-      "https://statics-maker.llt-services.com/cor/images/2026/03/08/xlarge/c0d1be71-9acd-4ea3-bb33-7c44cfc75b30-452.jpg",
-    fecha: "9 Mar 2026",
+      "https://pbs.twimg.com/media/HEBfU2aagAAxbHT?format=jpg&name=medium",
+    fecha: "23 Mar 2026",
     contenido: `La racha negativa del Córdoba CF comienza a preocupar tanto al cuerpo técnico como a la afición.
 
-El equipo ha encadenado cuatro derrotas consecutivas, algo que no había ocurrido desde la llegada de Iván Ania al banquillo blanquiverde.
+El equipo ha encadenado seis derrotas consecutivas, algo que no había ocurrido desde la llegada de Iván Ania al banquillo blanquiverde.
 
 Los resultados han frenado la progresión del equipo en la clasificación 
 
 y obligan al conjunto cordobesista a reaccionar cuanto antes para recuperar sensaciones y volver a sumar puntos.`,
   },
   {
-    id: 5,
-    slug: "el-arcangel-sera-clave",
-    titulo: "El Arcángel será clave",
-    resumen:
-      "El estadio cordobés puede ser fundamental para romper la mala racha.",
+    id: 7,
+    slug: "Dani-requena-en-la-seleccion-espanola-sub-21",
+    titulo: "Dani Requena en la selección España sub-21",
+    resumen: "El jugador del Córdoba CF representará a España en la sub-21.",
     imagen:
-      "https://statics-maker.llt-services.com/cor/images/2026/03/03/xlarge/e6720434-2fd9-4fbc-aaff-429cf724813d-140.JPG",
-    fecha: "9 Mar 2026",
-    contenido: `El Córdoba CF afronta un nuevo partido en casa con la necesidad de cambiar la dinámica de resultados.
+      "https://statics-maker.llt-services.com/cor/images/2026/03/20/xlarge-wp/bdba91c6-683b-4967-861a-e8b3f408180d-396.webp",
+    fecha: "23 Mar 2026",
+    contenido: `El jugador del Córdoba CF, Dani Requena, ha sido citado por primera vez por la Selección española sub-21, estrenándose así con el combinado nacional para disputar dos encuentros correspondientes a la fase de clasificación para el Europeo de la categoría.
 
-El estadio de El Arcángel se presenta como un factor clave para que el equipo vuelva a sumar puntos y recupere la confianza.
+El futbolista blanquiverde se incorporará a la concentración del equipo nacional para preparar los compromisos ante Chipre y la Federación de Kosovo, próximos rivales en la lucha por un billete al campeonato continental.
 
-El apoyo de la afición será fundamental para impulsar al equipo y tratar de romper la mala racha que atraviesa el conjunto blanquiverde.`,
-  },
+El primer partido se celebrará el viernes 27 a las 17:00 horas en Larnaca, donde España se enfrentará a Chipre. Posteriormente, el martes 31, el combinado español se medirá a la Federación de Kosovo en el Centro Deportivo de Alcalá de Henares, en un encuentro que dará comienzo a las 20:30 horas.
+
+Desde el Córdoba CF le deseamos mucha suerte a nuestro jugador en esta importante cita internacional.`,
+}
 ];
 
 // ── Jugadores (Plantilla Córdoba CF 2025/26) ──
