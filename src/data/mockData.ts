@@ -10,9 +10,21 @@ export interface Noticia {
 }
 
 export const noticias: Noticia[] = [
+   {
+    id: 1,
+    slug: "Bajas-Mirandes",
+    titulo: "Parte de bajas del Córdoba CF.",
+    resumen:
+      "Dia de partido. Córdoba-Mirandés. Liga Hypermothion (Jornada 32) 19:00.",
+    imagen: "https://www.instagram.com/p/DWW-rorisXm/media/?size=l",    
+    fecha: "26 Mar 2026",
+    contenido: `Así está el cara a cara ante el Mirandés. El Córdoba CF todavía no sabe lo que es ganar al Mirandés en El Arcángel.
+🔢 Balance total en casa: dos empates y tres victorias visitantes en los cinco partidos disputados en el estadio cordobés.`,
+    destacada: true,
+},
   
   {
-    id: 1,
+    id: 2,
     slug: "Bajas-Mirandes",
     titulo: "Parte de bajas del Córdoba CF.",
     resumen:
@@ -32,7 +44,7 @@ Dani Requena.`,
     destacada: true,
 },
   {
-    id: 2,
+    id: 3,
     slug: "Rueda-de-prensa-Previa-Mirandes",
     titulo: "Rueda de prensa de Iván Ania antes del partido contra el Mirandés",
     resumen:
@@ -46,7 +58,7 @@ Dani Requena.`,
   destacada: true,
 },
   {
-    id: 3,
+    id: 4,
     slug: "Se-cumplen-13-años",
     titulo: "Se cumplen 13 años sin nuestro Juanín se marchó.",
     resumen: "El Córdoba planta cara al líder, pero vuelve a caer.",
@@ -55,10 +67,10 @@ Dani Requena.`,
     fecha: "26 Mar 2026",
     contenido: `Se cumplen 13 años sin nuestro eterno número 8. Juanín se marchó en 2013 a los 72 años. El mejor jugador de la época más espléndida del equipo blanquiverde: es el 3º jugador con más partidos (317) y el 2º máximo goleador (77). 
     Siempre en el recuerdo de la afición cordobesista. ¡Gracias por todo, Juanín!`,
-    destacada: true,
+   
   },
   {
-    id: 4,
+    id: 5,
     slug: "el-arcangel-sera-clave",
     titulo: "El Arcángel será clave contra el Mirandes",
     resumen:
@@ -74,7 +86,7 @@ El apoyo de la afición será fundamental para impulsar al equipo y tratar de ro
   
 },
 {
-    id: 5,
+    id: 6,
     slug: "Carlos-Isaac-en-Córdoba",
     titulo: "Carlos Isaac, ha viajado desde Polonia hasta Córdoba ",
     resumen:
@@ -86,7 +98,7 @@ El apoyo de la afición será fundamental para impulsar al equipo y tratar de ro
 Se marchó este invierno tras el pago de su cláusula a la primera división polaca, pero su vínculo con el club sigue intacto. Gran gesto de alguien que no olvida este escudo @carlosisaac__ 💪🏽🤍💚`,
   },
   {
-    id: 6,
+    id: 7,
     slug: "seis-derrotas-consecutivas",
     titulo: "Seis derrotas consecutivas que pesan",
     resumen: "El Córdoba encadena su peor racha con Iván Ania al mando.",
@@ -102,7 +114,7 @@ Los resultados han frenado la progresión del equipo en la clasificación
 y obligan al conjunto cordobesista a reaccionar cuanto antes para recuperar sensaciones y volver a sumar puntos.`,
   },
   {
-    id: 7,
+    id: 8,
     slug: "Dani-requena-en-la-seleccion-espanola-sub-21",
     titulo: "Dani Requena en la selección España sub-21",
     resumen: "El jugador del Córdoba CF representará a España en la sub-21.",
