@@ -10,21 +10,39 @@ export interface Noticia {
 }
 
 export const noticias: Noticia[] = [
-   {
+  {
     id: 1,
-    slug: "dia-de-partido-cordoba-mirandes",
-    titulo: "Partido sin ilusión del Córdoba CF.",
+    slug: "lesion-Adilson",
+    titulo: "Adilson sufre otra rotura de ligamentos",  
+    resumen: "Rotura de ligamentos para Adilson Mendes, esta vez en la rodilla izquierda",
+    imagen: "https://s1.abcstatics.com/abc/www/multimedia/espana/2026/03/29/cordobacf-adilson-lesion-RvrnsCYh9sd8eKdN0PxSNSN-758x531@diario_abc.jpg",
+    fecha: "28 Mar 2026",
+    contenido: `La mala fortuna sigue cebándose con Adilson Mendes. Justo cuando ya empezaba a tener ritmo competitivo con el Córdoba CF, el luso vuelve a decir adiós a la temporada
+    
+    y gran parte de la siguiente tras romperse de manera parcial el ligamento cruzado de su rodilla izquierda. La lesión se produjo en el tramo final del duelo ante el Mirandés, 
+    
+    en el minuto 89, cuando un defensor jabato le propinó una carga que terminó con el blanquiverde sobre el césped mostrando dolor en su rodilla. Aunque pudo marcharse sustituido sobre su propio pie, 
+    
+    la gravedad de la lesión se pudo confirmar tras someterse a las pruebas realizadas por el club. Según ha podido anunciar la entidad mediante un comunicado médico, Adilson ha sufrido "un esguince de su rodilla izquierda con rotura parcial del ligamento cruzado anterior". `,
+destacada: true,} 
+  
+  
+  {
+    id: 2,
+    slug: "empate-sin-ilusion-del-cordoba-cf",
+    titulo: "Partido tirado del Córdoba CF.",
     resumen:
-      "Dia de partido. Córdoba-Mirandés. Liga Hypermothion (Jornada 32) 19:00.",
+      "El Córdoba CF se dejó dos puntos en casa ante el Mirandés, en un partido que dominó pero no supo cerrar.",
     imagen: "https://s1.abcstatics.com/abc/www/multimedia/espana/2025/12/21/cordobacf-mirandes-partido-RSTxBp6tcIc0YhbCtGnjPdJ-1200x840@diario_abc.jpeg",
-    fecha: "27 Mar 2026",
-    contenido: `Así está el cara a cara ante el Mirandés. El Córdoba CF todavía no sabe lo que es ganar al Mirandés en El Arcángel.
-🔢 Balance total en casa: dos empates y tres victorias visitantes en los cinco partidos disputados en el estadio cordobés.`,
+    fecha: "28 Mar 2026",
+    contenido: `El Córdoba CF se dejó dos puntos en casa ante el Mirandés, en un partido que empezó con un balón al palo de ellos de corner y también de corner se adelantó el equipo local con un golazo de Bri en un rebote de un corner. Durante la primera parte tuvimos más oportunidades de nuevo en las botas de Diego Bri y de Dalison. 
+    En la segunda parte, aprovechó nuestro goleador Adri Fuentes para coseguir su undecimo tanto en liga. En ese moemnto, en vez de cerrar el partido, el equipo se volvió más duvitativo y así llegó un extraño penalty que puso el 2-1 en el marcador. El Mirandés se lo creyó y se vino arriba y el Córdoba se encerró atrás, lo que propició 
+    que el equipo visitante empatara el partido a falta de 10 minutos. A partir de ahí equipo blanquiverde sacó mas orgullo que fuerza , con dos balones al palo, pero la falta de acierto y la buena actuación del portero rival impidieron que los cordobesistas se llevaran los tres puntos.`,
     destacada: true,
 },
   
   {
-    id: 2,
+    id: 3,
     slug: "Bajas-Mirandes",
     titulo: "Parte de bajas del Córdoba CF.",
     resumen:
@@ -44,7 +62,7 @@ Dani Requena.`,
     destacada: true,
 },
   {
-    id: 3,
+    id: 4,
     slug: "Rueda-de-prensa-Previa-Mirandes",
     titulo: "Rueda de prensa de Iván Ania antes del partido contra el Mirandés",
     resumen:
@@ -58,7 +76,7 @@ Dani Requena.`,
   destacada: true,
 },
   {
-    id: 4,
+    id: 5,
     slug: "Se-cumplen-13-años",
     titulo: "Se cumplen 13 años sin nuestro Juanín se marchó.",
     resumen: "El Córdoba planta cara al líder, pero vuelve a caer.",
@@ -70,7 +88,7 @@ Dani Requena.`,
    
   },
   {
-    id: 5,
+    id: 6,
     slug: "el-arcangel-sera-clave",
     titulo: "El Arcángel será clave contra el Mirandes",
     resumen:
@@ -86,7 +104,7 @@ El apoyo de la afición será fundamental para impulsar al equipo y tratar de ro
   
 },
 {
-    id: 6,
+    id: 7,
     slug: "Carlos-Isaac-en-Córdoba",
     titulo: "Carlos Isaac, ha viajado desde Polonia hasta Córdoba ",
     resumen:
@@ -98,7 +116,7 @@ El apoyo de la afición será fundamental para impulsar al equipo y tratar de ro
 Se marchó este invierno tras el pago de su cláusula a la primera división polaca, pero su vínculo con el club sigue intacto. Gran gesto de alguien que no olvida este escudo @carlosisaac__ 💪🏽🤍💚`,
   },
   {
-    id: 7,
+    id: 8,
     slug: "seis-derrotas-consecutivas",
     titulo: "Seis derrotas consecutivas que pesan",
     resumen: "El Córdoba encadena su peor racha con Iván Ania al mando.",
@@ -114,7 +132,7 @@ Los resultados han frenado la progresión del equipo en la clasificación
 y obligan al conjunto cordobesista a reaccionar cuanto antes para recuperar sensaciones y volver a sumar puntos.`,
   },
   {
-    id: 8,
+    id: 9,
     slug: "Dani-requena-en-la-seleccion-espanola-sub-21",
     titulo: "Dani Requena en la selección España sub-21",
     resumen: "El jugador del Córdoba CF representará a España en la sub-21.",
