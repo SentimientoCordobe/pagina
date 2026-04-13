@@ -230,53 +230,61 @@ export const clasificacion: EquipoClasificacion[] = [
 // ── Calendario del Córdoba CF (temporada 2025/26) ──
 export interface Jornada {
   jornada: number;
-  rival: string;
   fecha: string;
-  hora?: string;
+  rival: string;
+  estadio: string;
   resultado?: string;
   local: boolean;
-  estado: "victoria" | "empate" | "derrota" | "pendiente";
+  victoria: boolean | null; // true para victoria, false para derrota, null para partidos no disputados
 }
-
-export const calendario: Jornada[] = [
-  { jornada: 1, rival: "Sporting", fecha: "Ago 2025", resultado: "2-1", local: false, estado: "derrota" },
-  { jornada: 2, rival: "Las Palmas", fecha: "Ago 2025", resultado: "1-3", local: true, estado: "derrota" },
-  { jornada: 3, rival: "Valladolid", fecha: "Sep 2025", resultado: "0-0", local: false, estado: "empate" },
-  { jornada: 4, rival: "Castellón", fecha: "Sep 2025", resultado: "2-1", local: true, estado: "victoria" },
-  { jornada: 5, rival: "FC Andorra", fecha: "Sep 2025", resultado: "3-1", local: false, estado: "derrota" },
-  { jornada: 6, rival: "Racing Santander", fecha: "Oct 2025", resultado: "2-2", local: true, estado: "empate" },
-  { jornada: 7, rival: "Real Sociedad B", fecha: "Oct 2025", resultado: "1-1", local: false, estado: "empate" },
-  { jornada: 8, rival: "Zaragoza", fecha: "Oct 2025", resultado: "0-1", local: false, estado: "victoria" },
-  { jornada: 9, rival: "Cultural Leonesa", fecha: "Nov 2025", resultado: "1-0", local: true, estado: "victoria" },
-  { jornada: 10, rival: "Almería", fecha: "Nov 2025", resultado: "1-1", local: true, estado: "empate" },
-  { jornada: 11, rival: "Albacete", fecha: "Nov 2025", resultado: "1-3", local: false, estado: "victoria" },
-  { jornada: 12, rival: "Ceuta", fecha: "Nov 2025", resultado: "2-0", local: true, estado: "victoria" },
-  { jornada: 13, rival: "Málaga", fecha: "Dic 2025", resultado: "2-2", local: false, estado: "empate" },
-  { jornada: 14, rival: "Deportivo", fecha: "Dic 2025", resultado: "1-3", local: true, estado: "derrota" },
-  { jornada: 15, rival: "Granada", fecha: "Dic 2025", resultado: "1-1", local: false, estado: "empate" },
-  { jornada: 16, rival: "Cádiz", fecha: "Dic 2025", resultado: "1-2", local: true, estado: "derrota" },
-  { jornada: 17, rival: "Leganés", fecha: "Dic 2025", resultado: "0-0", local: false, estado: "empate" },
-  { jornada: 18, rival: "Eibar", fecha: "Dic 2025", resultado: "0-0", local: true, estado: "empate" },
-  { jornada: 19, rival: "Mirandés", fecha: "Ene 2026", resultado: "1-2", local: false, estado: "victoria" },
-  { jornada: 20, rival: "Burgos CF", fecha: "3 Ene 2026", resultado: "2-0", local: true, estado: "victoria" },
-  { jornada: 21, rival: "Huesca", fecha: "12 Ene 2026", resultado: "1-2", local: false, estado: "victoria" },
-  { jornada: 22, rival: "Málaga", fecha: "18 Ene 2026", resultado: "0-1", local: true, estado: "derrota" },
-  { jornada: 23, rival: "Las Palmas", fecha: "24 Ene 2026", resultado: "1-2", local: false, estado: "victoria" },
-  { jornada: 24, rival: "Valladolid", fecha: "31 Ene 2026", resultado: "3-1", local: true, estado: "victoria" },
-  { jornada: 25, rival: "Ceuta", fecha: "25 Feb 2026", resultado: "2-1", local: false, estado: "derrota" },
-  { jornada: 26, rival: "Leganés", fecha: "14 Feb 2026", resultado: "2-1", local: true, estado: "victoria" },
-  { jornada: 27, rival: "Almería", fecha: "21 Feb 2026", resultado: "2-1", local: false, estado: "derrota" },
-  { jornada: 28, rival: "FC Andorra", fecha: "2 Mar 2026", resultado: "1-4", local: true, estado: "derrota" },
-  { jornada: 29, rival: "Racing Santander", fecha: "8 Mar 2026", resultado: "4-3", local: false, estado: "derrota" },
-  { jornada: 30, rival: "Real Sociedad B", fecha: "15 Mar 2026", resultado: "0-2", local: true, estado: "derrota" },
-  { jornada: 31, rival: "Burgos CF", fecha: "22 Mar 2026", resultado: "4-0", local: false, estado: "derrota" },
-  { jornada: 32, rival: "Mirandés", fecha: "27 Mar 2026", hora: "19:00", local: true, estado: "pendiente" },
-  { jornada: 33, rival: "RC Deportivo", fecha: "31 Mar 2026", hora: "20:00", local: false, estado: "pendiente" },
-  { jornada: 34, rival: "Cádiz", fecha: "04 Abr 2026", hora: "14:00", local: false, estado: "pendiente" },
-  { jornada: 35, rival: "Zaragoza", fecha: "11 Abr 2026", hora: "21:00", local: true, estado: "pendiente" },
+export const RESULTADOS: Jornada[] = [
+  { jornada: 1, fecha: "18/08/2025", rival: "Sporting de Gijón", estadio: "El Molinón", resultado: "2 - 1", local: false, victoria: false },
+  { jornada: 2, fecha: "25/08/2025", rival: "UD Las Palmas", estadio: "Nuevo Arcángel", resultado: "1 - 3", local: true, victoria: false },
+  { jornada: 3, fecha: "30/08/2025", rival: "Real Valladolid", estadio: "José Zorrilla", resultado: "0 - 0", local: false, victoria: false },
+  { jornada: 4, fecha: "05/09/2025", rival: "CD Castellón", estadio: "Nuevo Arcángel", resultado: "2 - 1", local: true, victoria: true },
+  { jornada: 5, fecha: "14/09/2025", rival: "FC Andorra", estadio: "Estadi Nacional", resultado: "3 - 1", local: false, victoria: false },
+  { jornada: 6, fecha: "21/09/2025", rival: "Racing de Santander", estadio: "Nuevo Arcángel", resultado: "2 - 2", local: true, victoria: false },
+  { jornada: 7, fecha: "28/09/2025", rival: "Real Sociedad B", estadio: "Anoeta", resultado: "1 - 1", local: false, victoria: false },
+  { jornada: 8, fecha: "05/10/2025", rival: "Real Zaragoza", estadio: "La Romareda", resultado: "0 - 1", local: false, victoria: true },
+  { jornada: 9, fecha: "13/10/2025", rival: "Cultural Leonesa", estadio: "Nuevo Arcángel", resultado: "1 - 0", local: true, victoria: true },
+  { jornada: 10, fecha: "19/10/2025", rival: "UD Almería", estadio: "Nuevo Arcángel", resultado: "1 - 1", local: true, victoria: false },
+  { jornada: 11, fecha: "25/10/2025", rival: "Albacete Balompié", estadio: "Carlos Belmonte", resultado: "1 - 3", local: false, victoria: true },
+  { jornada: 12, fecha: "02/11/2025", rival: "AD Ceuta FC", estadio: "Nuevo Arcángel", resultado: "2 - 0", local: true, victoria: true },
+  { jornada: 13, fecha: "08/11/2025", rival: "Málaga CF", estadio: "La Rosaleda", resultado: "2 - 2", local: false, victoria: false },
+  { jornada: 14, fecha: "16/11/2025", rival: "RC Deportivo", estadio: "Nuevo Arcángel", resultado: "1 - 3", local: true, victoria: false },
+  { jornada: 15, fecha: "22/11/2025", rival: "Granada CF", estadio: "Nuevo Los Cármenes", resultado: "1 - 1", local: false, victoria: false },
+  { jornada: 16, fecha: "30/11/2025", rival: "Cádiz CF", estadio: "Nuevo Arcángel", resultado: "1 - 2", local: true, victoria: false },
+  { jornada: 17, fecha: "07/12/2025", rival: "CD Leganés", estadio: "Butarque", resultado: "0 - 0", local: false, victoria: false },
+  { jornada: 18, fecha: "13/12/2025", rival: "SD Eibar", estadio: "Nuevo Arcángel", resultado: "0 - 0", local: true, victoria: false },
+  { jornada: 19, fecha: "21/12/2025", rival: "CD Mirandés", estadio: "Anduva", resultado: "1 - 2", local: false, victoria: true },
+  { jornada: 20, fecha: "03/01/2026", rival: "Burgos CF", estadio: "Nuevo Arcángel", resultado: "2 - 0", local: true, victoria: true },
+  { jornada: 21, fecha: "12/01/2026", rival: "SD Huesca", estadio: "El Alcoraz", resultado: "1 - 2", local: false, victoria: true },
+  { jornada: 22, fecha: "18/01/2026", rival: "Málaga CF", estadio: "Nuevo Arcángel", resultado: "0 - 1", local: true, victoria: false },
+  { jornada: 23, fecha: "24/01/2026", rival: "UD Las Palmas", estadio: "Gran Canaria", resultado: "1 - 2", local: false, victoria: true },
+  { jornada: 24, fecha: "31/01/2026", rival: "Real Valladolid", estadio: "Nuevo Arcángel", resultado: "3 - 1", local: true, victoria: true },
+  { jornada: 25, fecha: "25/02/2026", rival: "AD Ceuta FC", estadio: "Alfonso Murube", resultado: "3 - 2", local: false, victoria: false },
+  { jornada: 26, fecha: "14/02/2026", rival: "CD Leganés", estadio: "Nuevo Arcángel", resultado: "2 - 1", local: true, victoria: true },
+  { jornada: 27, fecha: "21/02/2026", rival: "UD Almería", estadio: "Power Horse Stadium", resultado: "2 - 1", local: false, victoria: false },
+  { jornada: 28, fecha: "02/03/2026", rival: "FC Andorra", estadio: "Nuevo Arcángel", resultado: "1 - 4", local: true, victoria: false },
+  { jornada: 29, fecha: "08/03/2026", rival: "Racing de Santander", estadio: "El Sardinero", resultado: "4 - 3", local: false, victoria: false },
+  { jornada: 30, fecha: "15/03/2026", rival: "Real Sociedad B", estadio: "Nuevo Arcángel", resultado: "0 - 2", local: true, victoria: false },
+  { jornada: 31, fecha: "22/03/2026", rival: "Burgos CF", estadio: "El Plantío", resultado: "4 - 0", local: false, victoria: false },
+  { jornada: 32, fecha: "27/03/2026", rival: "CD Mirandés", estadio: "Nuevo Arcángel", resultado: "2 - 2", local: true, victoria: false },
+  { jornada: 33, fecha: "31/03/2026", rival: "RC Deportivo", estadio: "Riazor", resultado: "2 - 0", local: false, victoria: false },
+  { jornada: 34, fecha: "04/04/2026", rival: "Cádiz CF", estadio: "Nuevo Mirandilla", resultado: "1 - 3", local: false, victoria: true },
+  { jornada: 35, fecha: "11/04/2026", rival: "Real Zaragoza", estadio: "Nuevo Arcángel", resultado: "1 - 0", local: true, victoria: true },
+  // Partidos no disputados (victoria: null)
+  { jornada: 36, fecha: "18/04/2026", rival: "Cultural Leonesa", estadio: "Reino de León", resultado: "", local: false, victoria: null },
+  { jornada: 37, fecha: "26/04/2026", rival: "Sporting de Gijón", estadio: "Nuevo Arcángel", resultado: "", local: true, victoria: null },
+  { jornada: 38, fecha: "03/05/2026", rival: "CD Castellón", estadio: "SkyFi Castalia", resultado: "", local: false, victoria: null },
+  { jornada: 39, fecha: "10/05/2026", rival: "Granada CF", estadio: "Nuevo Arcángel", resultado: "", local: true, victoria: null },
+  { jornada: 40, fecha: "17/05/2026", rival: "Albacete Balompié", estadio: "Nuevo Arcángel", resultado: "", local: true, victoria: null },
+  { jornada: 41, fecha: "24/05/2026", rival: "SD Eibar", estadio: "Ipurua", resultado: "", local: false, victoria: null },
+  { jornada: 42, fecha: "31/05/2026", rival: "SD Huesca", estadio: "Nuevo Arcángel", resultado: "", local: true, victoria: null }
 ];
 
 // ── Partidos (Resúmenes YouTube) ──
+
 export interface Partido {
   rival: string;
   resultado: string;
@@ -287,7 +295,38 @@ export interface Partido {
 }
 
 export const partidos: Partido[] = [
-   
+   {
+    rival: "Zaragoza",
+    resultado: "1-0",
+    fecha: "11 Abr 2026",
+    youtube: "https://www.youtube.com/watch?v=R9Kx5z-D0v4",
+    miniatura: "https://img.youtube.com/vi/R9Kx5z-D0v4/maxresdefault.jpg",
+    local: true,
+  },
+  {
+    rival: "Cádiz",
+    resultado: "1-3",
+    fecha: "4 Abr 2026",
+    youtube: "https://www.youtube.com/watch?v=F2YxZ2_vT0A",
+    miniatura: "https://img.youtube.com/vi/F2YxZ2_vT0A/maxresdefault.jpg",
+    local: false,
+  },
+  {
+    rival: "Deportivo",
+    resultado: "2-0",
+    fecha: "31 Mar 2026",
+    youtube: "https://www.youtube.com/watch?v=NVmzlL83kQ4",
+    miniatura: "https://img.youtube.com/vi/NVmzlL83kQ4/maxresdefault.jpg",
+    local: false,
+  },
+  {
+    rival: "Mirandés",
+    resultado: "2-2",
+    fecha: "27 Mar 2026",
+    youtube: "https://www.youtube.com/watch?v=P8mXc_JkL7A",
+    miniatura: "https://img.youtube.com/vi/P8mXc_JkL7A/maxresdefault.jpg",
+    local: true,
+  },
   {
     rival: "Burgos CF",
     resultado: "4-0",
