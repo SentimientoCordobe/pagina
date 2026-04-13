@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight, Calendar, Trophy } from "lucide-react";
 import { FaTwitter, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 
 // Datos simulados (noticias, clasificación y calendario)
-import { noticias, clasificacion, calendario } from "../data/mockData";
+import { noticias, clasificacion, RESULTADOS } from "../data/mockData";
 
 // Router para navegar entre páginas
 import { Link } from "react-router-dom";
@@ -32,7 +32,7 @@ export default function Index() {
   }, [destacadas.length]);
 
   // Buscar el próximo partido pendiente
-  const proximoPartido = calendario.find((j) => j.estado === "pendiente");
+  const proximoPartido = RESULTADOS.find((j) => j.victoria === null);
 
   // Mostrar solo los 5 primeros equipos de la clasificación
   const top5 = clasificacion.slice(0, 5);

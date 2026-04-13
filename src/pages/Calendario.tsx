@@ -1,4 +1,4 @@
-import { calendario } from "../data/mockData";
+import { RESULTADOS } from "../data/mockData";
 import { MapPin } from "lucide-react";
 
 const estadoColors = {
@@ -23,14 +23,13 @@ export default function Calendario() {
       </h1>
 
       <div className="space-y-3">
-        {calendario.map((j) => (
+        {RESULTADOS.map((j) => (
           <div
             key={j.jornada}
             className="flex items-center gap-4 rounded-lg border bg-card p-4 shadow-sm transition-shadow hover:shadow-md"
           >
             {/* Estado badge */}
             <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-sm font-bold ${estadoColors[j.estado]}`}>
-              {estadoLabels[j.estado]}
             </div>
 
             {/* Info */}
@@ -43,7 +42,6 @@ export default function Calendario() {
               <p className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin size={14} />
                 {j.local ? "Casa" : "Fuera"} · {j.fecha}
-                {j.hora && ` · ${j.hora}`}
               </p>
             </div>
 
