@@ -4,6 +4,7 @@ import { FaTwitter, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa"
 import { clasificacion, RESULTADOS } from "../data/mockData"
 import { noticias, type Noticia } from "../data/noticias"
 import { Link } from "react-router-dom"
+import InstagramEmbed from "../components/InstagramEmbed"
 
 export default function Index(): JSX.Element {
 
@@ -66,7 +67,7 @@ export default function Index(): JSX.Element {
               <p className="text-sm opacity-80 mt-2">
                 {noticiaPrincipal.fecha}
               </p>
-
+              <InstagramEmbed url={noticiaPrincipal.instagram} />
             </div>
           </Link>
 
