@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom"
-import { noticia, type Noticia } from "../data/noticias"
+import { noticias, type Noticia } from "../data/noticias"
 
 export default function Noticia(): JSX.Element {
 
   const { slug } = useParams<{ slug: string }>()
 
-  const noticiaEncontrada: Noticia | undefined = noticia.find(
+  const noticiaEncontrada: Noticia | undefined = noticias.find(
     (n) => n.slug === slug
   )
 
@@ -22,11 +22,17 @@ export default function Noticia(): JSX.Element {
         className="w-full rounded-lg mb-6"
       />
 
-      <p>{noticiaEncontrada.fecha}</p>
+      <p className="text-sm text-secondary mb-2">
+        {noticiaEncontrada.fecha}
+      </p>
 
-      <h1>{noticiaEncontrada.titulo}</h1>
+      <h1 className="text-3xl md:text-4xl font-bold mb-6">
+        {noticiaEncontrada.titulo}
+      </h1>
 
-      <div>{noticiaEncontrada.contenido}</div>
+      <div className="text-lg whitespace-pre-line leading-relaxed text-muted-foreground">
+        {noticiaEncontrada.contenido}
+      </div>
 
     </div>
   )

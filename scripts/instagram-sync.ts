@@ -66,8 +66,8 @@ async function generarNoticias() {
 
   if (fs.existsSync("src/data/noticias.ts")) {
     const file = fs.readFileSync("src/data/noticias.ts", "utf8")
-    const match = file.match(/\[(.|\n)*\]/)
-    if (match) noticiasExistentes = JSON.parse(match[0])
+const match = file.match(/export const noticia\s*=\s*(\[[\s\S]*\])/)    
+if (match) noticiasExistentes = JSON.parse(match[1])
   }
 
   const urlsExistentes = noticiasExistentes.map(n => n.instagram)

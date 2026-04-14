@@ -2,14 +2,14 @@ import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight, Calendar, Trophy } from "lucide-react"
 import { FaTwitter, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa"
 import { clasificacion, RESULTADOS} from "../data/mockData"
-import { noticia, type Noticia } from "../data/noticias"
+import { noticias, type Noticia } from "../data/noticias"
 import { Link } from "react-router-dom"
 
 export default function Index(): JSX.Element {
 
   // 🔥 YA TIPADO → se acaba el "never"
-  const destacadas: Noticia[] = noticia.filter((n) => n.destacada)
-  const secundarias: Noticia[] = noticia.filter((n) => !n.destacada)
+  const destacadas: Noticia[] = noticias.filter((n) => n.destacada)
+  const secundarias: Noticia[] = noticias.filter((n) => !n.destacada)
 
   const [slide, setSlide] = useState<number>(0)
 
