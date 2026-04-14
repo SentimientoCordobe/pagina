@@ -23,19 +23,22 @@ function detectarTipo(url: string) {
 async function generarNoticias() {
 
   const feed = await parser.parseURL(
-    `https://rsshub.app/instagram/user/${INSTAGRAM_USER}`
-  )
+"https://rss.app/feeds/xOT5EkfkrOEzQDxg.xml"  )
 
   let noticiasExistentes: any[] = []
 
   if (fs.existsSync("src/data/noticias.ts")) {
     const file = fs.readFileSync("src/data/noticias.ts", "utf8")
 
-    const match = file.match(/\[(.|\n)*\]/)
+    const match = file.match(/export const noticias = (\[[\s\S]*\])/)
 
-    if (match) {
-      noticiasExistentes = JSON.parse(match[0])
-    }
+if (match) {
+  try {
+    noticiasExistentes = JSON.parse(match[1])
+  } catch {
+    noticiasExistentes = []
+  }
+}
   }
 
   const urlsExistentes = noticiasExistentes.map(n => n.instagram)
