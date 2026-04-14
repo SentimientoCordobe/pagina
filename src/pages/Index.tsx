@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight, Calendar, Trophy } from "lucide-react"
 import { FaTwitter, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa"
 import { clasificacion, RESULTADOS} from "../data/mockData"
-import {noticia,  Noticia} from "../data/noticias"
+import { noticia, type Noticia } from "../data/noticias"
 import { Link } from "react-router-dom"
 
 export default function Index(): JSX.Element {
