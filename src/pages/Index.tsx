@@ -4,7 +4,6 @@ import { FaTwitter, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa"
 import { clasificacion, RESULTADOS } from "../data/mockData"
 import { noticias, type Noticia } from "../data/noticias"
 import { Link } from "react-router-dom"
-import InstagramEmbed from "../components/InstagramEmbed"
 
 export default function Index(): JSX.Element {
 
@@ -14,6 +13,7 @@ export default function Index(): JSX.Element {
   const [slide, setSlide] = useState(0)
 
   useEffect(() => {
+
     if (destacadas.length === 0) return
 
     const timer = setInterval(() => {
@@ -21,6 +21,7 @@ export default function Index(): JSX.Element {
     }, 6000)
 
     return () => clearInterval(timer)
+
   }, [destacadas.length])
 
   const proximoPartido = RESULTADOS.find((j) => j.victoria === null)
@@ -37,18 +38,20 @@ export default function Index(): JSX.Element {
 
       <div className="grid lg:grid-cols-[1fr_320px] gap-8">
 
-        {/* ================= MAIN ================= */}
+        {/* MAIN */}
 
         <div className="space-y-10">
 
-          {/* HERO PORTADA */}
+          {/* HERO */}
 
           <Link
             to={`/noticias/${noticiaPrincipal.slug}`}
             className="relative block rounded-xl overflow-hidden group"
           >
+
             <img
               src={noticiaPrincipal.imagen || "/placeholder.jpg"}
+              alt={noticiaPrincipal.titulo}
               className="h-[420px] w-full object-cover group-hover:scale-105 transition duration-500"
             />
 
@@ -67,10 +70,10 @@ export default function Index(): JSX.Element {
               <p className="text-sm opacity-80 mt-2">
                 {noticiaPrincipal.fecha}
               </p>
-              <InstagramEmbed url={noticiaPrincipal.instagram} />
-            </div>
-          </Link>
 
+            </div>
+
+          </Link>
 
           {/* GRID NOTICIAS */}
 
@@ -93,6 +96,7 @@ export default function Index(): JSX.Element {
                   <div className="overflow-hidden">
                     <img
                       src={n.imagen || "/placeholder.jpg"}
+                      alt={n.titulo}
                       className="h-44 w-full object-cover group-hover:scale-105 transition"
                     />
                   </div>
@@ -124,7 +128,7 @@ export default function Index(): JSX.Element {
         </div>
 
 
-        {/* ================= SIDEBAR ================= */}
+        {/* SIDEBAR */}
 
         <aside className="space-y-6">
 
@@ -156,7 +160,6 @@ export default function Index(): JSX.Element {
 
           )}
 
-
           {/* CLASIFICACION */}
 
           <div className="rounded-xl border bg-card p-5">
@@ -166,14 +169,6 @@ export default function Index(): JSX.Element {
             </h3>
 
             <table className="w-full text-sm">
-
-              <thead>
-                <tr className="border-b text-xs">
-                  <th className="text-left">#</th>
-                  <th className="text-left">Equipo</th>
-                  <th className="text-right">Pts</th>
-                </tr>
-              </thead>
 
               <tbody>
 
@@ -199,7 +194,6 @@ export default function Index(): JSX.Element {
 
           </div>
 
-
           {/* REDES */}
 
           <div className="rounded-xl border bg-card p-5">
@@ -210,35 +204,19 @@ export default function Index(): JSX.Element {
 
             <div className="space-y-2">
 
-              <a
-                href="https://x.com/Sent_Cordobe"
-                target="_blank"
-                className="flex items-center gap-2 hover:text-secondary"
-              >
+              <a href="https://x.com/Sent_Cordobe" target="_blank">
                 <FaTwitter/> @Sent_Cordobe
               </a>
 
-              <a
-                href="https://www.instagram.com/sentimiento_cordobe/"
-                target="_blank"
-                className="flex items-center gap-2 hover:text-secondary"
-              >
+              <a href="https://www.instagram.com/sentimiento_cordobe/" target="_blank">
                 <FaInstagram/> @sentimiento_cordobe
               </a>
 
-              <a
-                href="https://www.youtube.com/@SentimientoCordobe"
-                target="_blank"
-                className="flex items-center gap-2 hover:text-secondary"
-              >
+              <a href="https://www.youtube.com/@SentimientoCordobe" target="_blank">
                 <FaYoutube/> Sentimiento Cordobé
               </a>
 
-              <a
-                href="https://www.tiktok.com/@sentimiento_cordobe"
-                target="_blank"
-                className="flex items-center gap-2 hover:text-secondary"
-              >
+              <a href="https://www.tiktok.com/@sentimiento_cordobe" target="_blank">
                 <FaTiktok/> @sentimiento_cordobe
               </a>
 

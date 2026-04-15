@@ -4,30 +4,30 @@ on:
   schedule:
     - cron: "*/30 * * * *"   # cada 30 minutos
   workflow_dispatch:
+name: Sync Instagram News
 
 jobs:
   sync:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
+      - name: Clonar repositorio
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: npm install
+      - name: Instalar dependencias
+        run: npm ci
 
-      - name: Run Instagram Sync
+      - name: Ejecutar script Instagram Sync
         run: npm run instagram-sync
 
-      - name: Commit changes
+      - name: Commit cambios y push
         run: |
           git config --global user.name "instagram-bot"
           git config --global user.email "bot@github.com"
           git add src/data/noticias.ts
-          git commit -m "auto: sync instagram news" || echo "no changes"
+          git diff --quiet && git diff --staged --quiet || git commit -m "Sync Instagram posts"
           git push

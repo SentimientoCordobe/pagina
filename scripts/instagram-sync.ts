@@ -7,41 +7,35 @@ const parser = new Parser()
 const RSS_URL = "https://rss.app/feeds/xOT5EkfkrOEzQDxg.xml"
 
 function slugify(text: string) {
-  return text
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "")
+  return text.toLowerCase()
+             .normalize("NFD")
+             .replace(/[\u0300-\u036f]/g, "")
+             .replace(/[^a-z0-9]+/g, "-")
+             .replace(/(^-|-$)/g, "")
 }
 
-function detectarTipo(url: string) {
+function detectarTipo(url: string): "post"|"reel"|"carousel" {
   if (url.includes("/reel/")) return "reel"
-  if (url.includes("/p/")) return "post"
+  if (url.includes("/p/"))    return "post"
   return "carousel"
 }
 
 function fetchRSS(url: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    https.get(url, res => {
+  return new Promise((res, rej) => {
+    https.get(url, resp => {
       let data = ""
-
-      res.on("data", chunk => {
-        data += chunk
-      })
-
-      res.on("end", () => {
+      resp.on("data", chunk => data += chunk)
+      resp.on("end", () => {
+        // Escapar caracteres especiales
         const cleaned = data.replace(/&(?!amp;|lt;|gt;|quot;|apos;)/g, "&amp;")
-        resolve(cleaned)
+        res(cleaned)
       })
-
-    }).on("error", reject)
+    }).on("error", rej)
   })
 }
 
 function extraerImagen(item: any): string {
   const content = item.content || ""
-
   const posibles = [
     item.enclosure?.url,
     item["media:content"]?.$?.url,
@@ -49,13 +43,10 @@ function extraerImagen(item: any): string {
     content.match(/src="([^"]+)"/)?.[1],
     content.match(/https?:\/\/[^\s"]+\.(jpg|jpeg|png|webp)/)?.[0]
   ]
-
-  return posibles.find(url =>
-    url &&
-    !url.includes("rss.app") &&
-    !url.includes("facebook.com") &&
-    !url.includes("instagram.com")
-  ) || ""
+  // Elegir la primera válida, evitando Instagram directo
+  return (posibles.find(url =>
+    url && !url.includes("rss.app") && !url.includes("facebook.com")
+  ) || "/placeholder.jpg")
 }
 
 async function generarNoticias() {
@@ -63,27 +54,26 @@ async function generarNoticias() {
   const feed = await parser.parseString(xml)
 
   let noticiasExistentes: any[] = []
-
   if (fs.existsSync("src/data/noticias.ts")) {
     const file = fs.readFileSync("src/data/noticias.ts", "utf8")
-const match = file.match(/export const noticia\s*=\s*(\[[\s\S]*\])/)    
-if (match) noticiasExistentes = JSON.parse(match[1])
+    const match = file.match(/export const noticias\s*=\s*(\[[\s\S]*\])/)
+    if (match) {
+      try { noticiasExistentes = JSON.parse(match[1]) }
+      catch { noticiasExistentes = [] }
+    }
   }
 
-  const urlsExistentes = noticiasExistentes.map(n => n.instagram)
-
-  const nuevasNoticias = feed.items
-    .filter(item => !urlsExistentes.includes(item.link))
-    .map((item, index) => {
-      const titulo = item.title || "Post de Instagram"
-      const imagen = extraerImagen(item)
-
+  const urlsExistentes = new Set(noticiasExistentes.map(n => n.instagram))
+  const nuevas = feed.items
+    .filter(item => !urlsExistentes.has(item.link))
+    .map((item, i) => {
+      const titulo = item.title || "Publicación Instagram"
       return {
-        id: noticiasExistentes.length + index + 1,
+        id: noticiasExistentes.length + i + 1,
         slug: slugify(titulo),
         titulo,
-        resumen: titulo.slice(0, 120),
-        imagen: imagen || "/placeholder.jpg",
+        resumen: titulo.slice(0, 140),
+        imagen: extraerImagen(item),
         fecha: item.pubDate || "",
         contenido: titulo,
         instagram: item.link,
@@ -92,31 +82,18 @@ if (match) noticiasExistentes = JSON.parse(match[1])
       }
     })
 
-  const noticiasFinal = [...nuevasNoticias, ...noticiasExistentes]
+  const final = [...nuevas, ...noticiasExistentes]
+  if (final.length) final[0].destacada = true
 
-  if (noticiasFinal.length > 0) {
-    noticiasFinal[0].destacada = true
-  }
-
-  const file = `
-export interface Noticia {
-  id: number
-  slug: string
-  titulo: string
-  resumen: string
-  imagen: string
-  fecha: string
-  contenido: string
-  instagram: string
-  tipo: "post" | "reel" | "carousel"
-  destacada?: boolean
+  const out = `
+export interface Noticia { 
+  id: number, slug: string, titulo: string, resumen: string,
+  imagen: string, fecha: string, contenido: string,
+  instagram: string, tipo: "post"|"reel"|"carousel", destacada?: boolean
 }
-
-export const noticias = ${JSON.stringify(noticiasFinal, null, 2)}
+export const noticias = ${JSON.stringify(final, null, 2)}
 `
-
-  fs.writeFileSync("src/data/noticias.ts", file)
-
+  fs.writeFileSync("src/data/noticias.ts", out)
   console.log("Noticias sincronizadas correctamente 🚀")
 }
 

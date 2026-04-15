@@ -15,15 +15,16 @@ export default function Noticia(): JSX.Element {
   }
 
   return (
-    <div className="container mx-auto px-4 py-10 max-w-4xl">
+
+    <div className="container mx-auto px-4 py-10 max-w-3xl">
 
       <img
         src={noticiaEncontrada.imagen || "/placeholder.jpg"}
-        alt={noticiaEncontrada.titulo || ""}
+        alt={noticiaEncontrada.titulo}
         className="w-full rounded-lg mb-6"
       />
 
-      <p className="text-sm text-secondary mb-2">
+      <p className="text-sm text-muted-foreground mb-2">
         {noticiaEncontrada.fecha}
       </p>
 
@@ -31,15 +32,15 @@ export default function Noticia(): JSX.Element {
         {noticiaEncontrada.titulo}
       </h1>
 
-      <div className="text-lg whitespace-pre-line leading-relaxed text-muted-foreground mb-8">
+      <div className="text-lg whitespace-pre-line leading-relaxed mb-10">
         {noticiaEncontrada.contenido}
       </div>
 
-      {/* REEL / POST EMBEBIDO */}
       {noticiaEncontrada.instagram && (
         <InstagramEmbed url={noticiaEncontrada.instagram} />
       )}
 
     </div>
+
   )
 }

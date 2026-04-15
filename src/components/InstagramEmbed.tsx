@@ -6,6 +6,8 @@ interface Props {
 
 export default function InstagramEmbed({ url }: Props) {
 
+  const cleanUrl = url.split("?")[0]
+
   useEffect(() => {
 
     const scriptId = "instagram-embed-script"
@@ -33,16 +35,20 @@ export default function InstagramEmbed({ url }: Props) {
 
     }
 
-  }, [url])
+  }, [cleanUrl])
 
   return (
-    <div className="my-8 flex justify-center">
+
+    <div className="my-10 flex justify-center">
+
       <blockquote
         className="instagram-media"
-        data-instgrm-permalink={url}
+        data-instgrm-permalink={cleanUrl}
         data-instgrm-version="14"
         style={{ maxWidth: "540px", width: "100%" }}
       />
+
     </div>
+
   )
 }
