@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { Calendar, Trophy } from "lucide-react"
-import { FaTwitter, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa"
+import { FaTwitter, FaInstagram, FaYoutube, FaTiktok, FaXing } from "react-icons/fa"
 import { clasificacion, RESULTADOS } from "../data/mockData"
 import { noticias, type Noticia } from "../data/noticias"
 import { Link } from "react-router-dom"
@@ -83,7 +83,7 @@ export default function Index(): JSX.Element {
               Últimas noticias
             </h2>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
 
               {secundarias.map((n) => (
 
@@ -139,7 +139,7 @@ export default function Index(): JSX.Element {
             <div className="bg-primary text-primary-foreground rounded-xl p-5">
 
               <h3 className="flex items-center gap-2 text-sm font-bold uppercase text-secondary mb-3">
-                <Calendar size={16}/> Próximo Partido
+                <Calendar size={16} /> Próximo Partido
               </h3>
 
               <p className="text-lg font-bold">
@@ -165,7 +165,7 @@ export default function Index(): JSX.Element {
           <div className="rounded-xl border bg-card p-5">
 
             <h3 className="flex items-center gap-2 text-sm font-bold uppercase text-secondary mb-3">
-              <Trophy size={16}/> Clasificación
+              <Trophy size={16} /> Clasificación
             </h3>
 
             <table className="w-full text-sm">
@@ -196,29 +196,27 @@ export default function Index(): JSX.Element {
 
           {/* REDES */}
 
-          <div className="rounded-xl border bg-card p-5">
-
-            <h3 className="text-sm font-bold uppercase text-secondary mb-3">
-              Redes sociales
+          <div className="rounded-lg border bg-card p-5 shadow-sm">
+            <h3 className="mb-3 font-display text-sm font-bold uppercase tracking-wider text-secondary">
+              Redes Sociales
             </h3>
 
-            <div className="space-y-2">
+            <div className="rounded-lg border bg-card p-5 shadow-sm">
+            <h3 className="mb-3 font-display text-sm font-bold uppercase tracking-wider text-secondary">
+              Redes Sociales
+            </h3>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <p><a href="https://x.com/Sent_Cordobe" target="_blank"> 🐦 Twitter: @SentCordoba</a></p>
+              <p><a href="https://www.instagram.com/sentimiento_cordobe/" target="_blank">📸 Instagram: @sentimientocordobe</a></p>
+              <p>
+              <a href="https://www.youtube.com/@SentimientoCordobe" target="_blank">📺 YouTube: Sentimiento Cordobé</a></p>
+             <p> <a href="https://www.tiktok.com/@sentimiento_cordobe" target="_blank"> TIKTOK: @sentimiento_cordobe
+            </a></p>
+            </div>
+          </div>
+            <div className="space-y-2 text-sm text-muted-foreground">
 
-              <a href="https://x.com/Sent_Cordobe" target="_blank">
-                <FaTwitter/> @Sent_Cordobe
-              </a>
-
-              <a href="https://www.instagram.com/sentimiento_cordobe/" target="_blank">
-                <FaInstagram/> @sentimiento_cordobe
-              </a>
-
-              <a href="https://www.youtube.com/@SentimientoCordobe" target="_blank">
-                <FaYoutube/> Sentimiento Cordobé
-              </a>
-
-              <a href="https://www.tiktok.com/@sentimiento_cordobe" target="_blank">
-                <FaTiktok/> @sentimiento_cordobe
-              </a>
+              
 
             </div>
 
@@ -226,8 +224,7 @@ export default function Index(): JSX.Element {
 
         </aside>
 
-      </div>
-
-    </div>
+      
+</div></div>
   )
 }
