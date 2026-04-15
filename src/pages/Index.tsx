@@ -25,7 +25,6 @@ export default function Index(): JSX.Element {
   }, [destacadas.length])
 
   const proximoPartido = RESULTADOS.find((j) => j.victoria === null)
-  const top5 = clasificacion.slice(0, 5)
 
   if (destacadas.length === 0) {
     return <div className="container mx-auto p-6">Cargando...</div>
@@ -77,14 +76,38 @@ export default function Index(): JSX.Element {
 
           {/* GRID NOTICIAS */}
 
-          <section>
 
             <h2 className="text-xl font-bold mb-6 uppercase">
               Últimas noticias
             </h2>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+<div className="space-y-4">
 
+  {secundarias.map((n) => (
+
+    <Link
+      key={n.id}
+      to={`/noticias/${n.slug}`}
+      className="block border-b pb-4 hover:text-primary transition"
+    >
+
+      <p className="text-xs text-muted-foreground">
+        {n.fecha}
+      </p>
+
+      <h3 className="font-semibold text-lg leading-snug">
+        {n.titulo}
+      </h3>
+
+      <p className="text-sm text-muted-foreground line-clamp-2">
+        {n.resumen}
+      </p>
+
+    </Link>
+
+  ))}
+
+</div>
               {secundarias.map((n) => (
 
                 <Link
@@ -123,7 +146,6 @@ export default function Index(): JSX.Element {
 
             </div>
 
-          </section>
 
         </div>
 
@@ -168,29 +190,39 @@ export default function Index(): JSX.Element {
               <Trophy size={16} /> Clasificación
             </h3>
 
-            <table className="w-full text-sm">
+          
+      <table className="w-full text-sm">
 
-              <tbody>
+  <thead className="text-xs text-muted-foreground">
+    <tr>
+      <th className="text-left">#</th>
+      <th className="text-left">Equipo</th>
+      <th className="text-right">Pts</th>
+    </tr>
+  </thead>
 
-                {top5.map((e) => (
+  <tbody>
 
-                  <tr key={e.posicion}>
+    {clasificacion.map((e) => (
 
-                    <td>{e.posicion}</td>
+      <tr key={e.posicion} className="border-t">
 
-                    <td>{e.equipo}</td>
+        <td className="py-1">{e.posicion}</td>
 
-                    <td className="text-right font-bold">
-                      {e.puntos}
-                    </td>
+        <td>{e.equipo}</td>
 
-                  </tr>
+        <td className="text-right font-bold">
+          {e.puntos}
+        </td>
 
-                ))}
+      </tr>
 
-              </tbody>
+    ))}
 
-            </table>
+  </tbody>
+
+</table>            
+
 
           </div>
 
@@ -225,6 +257,6 @@ export default function Index(): JSX.Element {
         </aside>
 
       
-</div></div>
+</div>
   )
 }
