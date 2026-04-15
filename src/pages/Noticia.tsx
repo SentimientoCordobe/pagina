@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { noticias, type Noticia } from "../data/noticias"
 import InstagramEmbed from "../components/InstagramEmbed"
+
 export default function Noticia(): JSX.Element {
 
   const { slug } = useParams<{ slug: string }>()
@@ -30,9 +31,14 @@ export default function Noticia(): JSX.Element {
         {noticiaEncontrada.titulo}
       </h1>
 
-      <div className="text-lg whitespace-pre-line leading-relaxed text-muted-foreground">
+      <div className="text-lg whitespace-pre-line leading-relaxed text-muted-foreground mb-8">
         {noticiaEncontrada.contenido}
       </div>
+
+      {/* REEL / POST EMBEBIDO */}
+      {noticiaEncontrada.instagram && (
+        <InstagramEmbed url={noticiaEncontrada.instagram} />
+      )}
 
     </div>
   )
