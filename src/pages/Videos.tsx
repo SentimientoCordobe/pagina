@@ -1,41 +1,60 @@
-import { partidos } from "../data/mockData";
-import { videos } from "../data/videos";
-import { Play } from "lucide-react";
+import { videos } from "../data/videos"
+import { Play } from "lucide-react"
 
-export default function Videos() {
+export default function Videos(): JSX.Element {
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-8 font-display text-4xl font-bold uppercase tracking-wide text-foreground">
-        Mis Vídeos
+
+    <div className="container mx-auto px-4 py-10">
+
+      <h1 className="mb-10 text-4xl font-bold uppercase">
+        Videos
       </h1>
 
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {videos.map((v, i) => (
-          <a
-            key={i}
-            href={v.youtube}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group overflow-hidden rounded-lg border bg-card shadow-sm transition-shadow hover:shadow-lg"
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        {videos.map((v) => (
+
+          <div
+            key={v.id}
+            className="group overflow-hidden rounded-xl border bg-card shadow-sm hover:shadow-lg transition"
           >
-            <div className="relative aspect-video overflow-hidden">
-              <img
-                src={v.miniatura}
-                alt={v.titulo}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+
+            {/* VIDEO */}
+
+            <div className="aspect-video">
+
+              <iframe
+                src={`https://www.youtube.com/embed/${v.id}`}
+                title={v.titulo}
+                allowFullScreen
+                className="w-full h-full"
               />
-              <div className="absolute inset-0 flex items-center justify-center bg-foreground/30 opacity-0 transition-opacity group-hover:opacity-100">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-destructive text-destructive-foreground shadow-lg">
-                  <Play size={28} fill="currentColor" />
-                </div>
-              </div>
+
             </div>
+
+            {/* INFO */}
+
             <div className="p-4">
-              <p className="mt-1 text-sm text-muted-foreground">{v.fecha} ·</p>
+
+              <h3 className="font-semibold leading-snug line-clamp-2">
+                {v.titulo}
+              </h3>
+
+              <p className="text-sm text-muted-foreground mt-2">
+                {v.fecha}
+              </p>
+
             </div>
-          </a>
+
+          </div>
+
         ))}
+
       </div>
+
     </div>
-  );
+
+  )
+
 }

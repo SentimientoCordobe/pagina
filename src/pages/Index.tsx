@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { Calendar, Trophy } from "lucide-react"
-import { FaTwitter, FaInstagram, FaYoutube, FaTiktok, FaXing } from "react-icons/fa"
 import { clasificacion, RESULTADOS } from "../data/mockData"
 import { noticias, type Noticia } from "../data/noticias"
 import { Link } from "react-router-dom"
@@ -41,7 +40,7 @@ export default function Index(): JSX.Element {
 
         <div className="space-y-10">
 
-          {/* HERO */}
+          {/* HERO DESTACADA */}
 
           <Link
             to={`/noticias/${noticiaPrincipal.slug}`}
@@ -49,10 +48,10 @@ export default function Index(): JSX.Element {
           >
 
             <img
-              src={noticiaPrincipal.imagen || "/placeholder.jpg"}
-              alt={noticiaPrincipal.titulo}
-              className="h-[420px] w-full object-cover group-hover:scale-105 transition duration-500"
-            />
+  src={noticiaPrincipal.imagen ? noticiaPrincipal.imagen : "/placeholder.jpg"}
+  alt={noticiaPrincipal.titulo}
+  className="h-[420px] w-full object-cover group-hover:scale-105 transition duration-500"
+/>
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
@@ -74,71 +73,35 @@ export default function Index(): JSX.Element {
 
           </Link>
 
-          {/* GRID NOTICIAS */}
+          {/* LISTA NOTICIAS */}
 
+          <section>
 
             <h2 className="text-xl font-bold mb-6 uppercase">
               Últimas noticias
             </h2>
 
-<div className="space-y-4">
+            <div className="space-y-4">
 
-  {secundarias.map((n) => (
-
-    <Link
-      key={n.id}
-      to={`/noticias/${n.slug}`}
-      className="block border-b pb-4 hover:text-primary transition"
-    >
-
-      <p className="text-xs text-muted-foreground">
-        {n.fecha}
-      </p>
-
-      <h3 className="font-semibold text-lg leading-snug">
-        {n.titulo}
-      </h3>
-
-      <p className="text-sm text-muted-foreground line-clamp-2">
-        {n.resumen}
-      </p>
-
-    </Link>
-
-  ))}
-
-</div>
               {secundarias.map((n) => (
 
                 <Link
                   key={n.id}
                   to={`/noticias/${n.slug}`}
-                  className="bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-md transition group"
+                  className="block border-b pb-4 hover:text-primary transition"
                 >
 
-                  <div className="overflow-hidden">
-                    <img
-                      src={n.imagen || "/placeholder.jpg"}
-                      alt={n.titulo}
-                      className="h-44 w-full object-cover group-hover:scale-105 transition"
-                    />
-                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    {n.fecha}
+                  </p>
 
-                  <div className="p-4">
+                  <h3 className="font-semibold text-lg leading-snug">
+                    {n.titulo}
+                  </h3>
 
-                    <p className="text-xs text-muted-foreground">
-                      {n.fecha}
-                    </p>
-
-                    <h3 className="font-semibold mt-1 line-clamp-2">
-                      {n.titulo}
-                    </h3>
-
-                    <p className="text-sm text-muted-foreground mt-2 line-clamp-2">
-                      {n.resumen}
-                    </p>
-
-                  </div>
+                  <p className="text-sm text-muted-foreground line-clamp-2">
+                    {n.resumen}
+                  </p>
 
                 </Link>
 
@@ -146,13 +109,13 @@ export default function Index(): JSX.Element {
 
             </div>
 
+          </section>
 
         </div>
 
-
         {/* SIDEBAR */}
 
-        <aside className="space-y-6">
+        <aside className="space-y-6 sticky top-6 h-fit">
 
           {/* PROXIMO PARTIDO */}
 
@@ -182,7 +145,7 @@ export default function Index(): JSX.Element {
 
           )}
 
-          {/* CLASIFICACION */}
+          {/* CLASIFICACION COMPLETA */}
 
           <div className="rounded-xl border bg-card p-5">
 
@@ -190,65 +153,77 @@ export default function Index(): JSX.Element {
               <Trophy size={16} /> Clasificación
             </h3>
 
-          
-      <table className="w-full text-sm">
+            <table className="w-full text-sm">
 
-  <thead className="text-xs text-muted-foreground">
-    <tr>
-      <th className="text-left">#</th>
-      <th className="text-left">Equipo</th>
-      <th className="text-right">Pts</th>
-    </tr>
-  </thead>
+              <thead className="text-xs text-muted-foreground">
+                <tr>
+                  <th className="text-left">#</th>
+                  <th className="text-left">Equipo</th>
+                  <th className="text-right">Pts</th>
+                </tr>
+              </thead>
 
-  <tbody>
+              <tbody>
 
-    {clasificacion.map((e) => (
+                {clasificacion.map((e) => (
 
-      <tr key={e.posicion} className="border-t">
+                  <tr key={e.posicion} className="border-t">
 
-        <td className="py-1">{e.posicion}</td>
+                    <td className="py-1">
+                      {e.posicion}
+                    </td>
 
-        <td>{e.equipo}</td>
+                    <td>
+                      {e.equipo}
+                    </td>
 
-        <td className="text-right font-bold">
-          {e.puntos}
-        </td>
+                    <td className="text-right font-bold">
+                      {e.puntos}
+                    </td>
 
-      </tr>
+                  </tr>
 
-    ))}
+                ))}
 
-  </tbody>
+              </tbody>
 
-</table>            
-
+            </table>
 
           </div>
 
-          {/* REDES */}
+          {/* REDES SOCIALES */}
 
           <div className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="mb-3 font-display text-sm font-bold uppercase tracking-wider text-secondary">
+
+            <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-secondary">
               Redes Sociales
             </h3>
 
-            <div className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="mb-3 font-display text-sm font-bold uppercase tracking-wider text-secondary">
-              Redes Sociales
-            </h3>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <p><a href="https://x.com/Sent_Cordobe" target="_blank"> 🐦 Twitter: @SentCordoba</a></p>
-              <p><a href="https://www.instagram.com/sentimiento_cordobe/" target="_blank">📸 Instagram: @sentimientocordobe</a></p>
+
               <p>
-              <a href="https://www.youtube.com/@SentimientoCordobe" target="_blank">📺 YouTube: Sentimiento Cordobé</a></p>
-             <p> <a href="https://www.tiktok.com/@sentimiento_cordobe" target="_blank"> TIKTOK: @sentimiento_cordobe
-            </a></p>
-            </div>
-          </div>
-            <div className="space-y-2 text-sm text-muted-foreground">
+                <a href="https://x.com/Sent_Cordobe" target="_blank">
+                  🐦 Twitter: @SentCordoba
+                </a>
+              </p>
 
-              
+              <p>
+                <a href="https://www.instagram.com/sentimiento_cordobe/" target="_blank">
+                  📸 Instagram: @sentimientocordobe
+                </a>
+              </p>
+
+              <p>
+                <a href="https://www.youtube.com/@SentimientoCordobe" target="_blank">
+                  📺 YouTube: Sentimiento Cordobé
+                </a>
+              </p>
+
+              <p>
+                <a href="https://www.tiktok.com/@sentimiento_cordobe" target="_blank">
+                  🎵 TikTok: @sentimiento_cordobe
+                </a>
+              </p>
 
             </div>
 
@@ -256,7 +231,8 @@ export default function Index(): JSX.Element {
 
         </aside>
 
-      
-</div>
+      </div>
+
+    </div>
   )
 }

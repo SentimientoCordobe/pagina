@@ -1,4 +1,4 @@
-import { partidos } from "../data/mockData";
+import { partidos } from "../data/partidos";
 import { Play } from "lucide-react";
 
 export default function Partidos() {
