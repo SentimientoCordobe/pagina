@@ -18,7 +18,7 @@ export const noticias: Noticia[] = [
     "slug": "fin-de-la-jornada-retro-35-el-cordoba-continua-12-tras-encadenar-2-victorias-consecutivas-ascenso-directo-13",
     "titulo": "📊Fin de la jornada retro (35), el Córdoba continúa 12º, tras encadenar 2 victorias consecutivas ⬆️ Ascenso directo: -13...",
     "resumen": "📊Fin de la jornada retro (35), el Córdoba continúa 12º, tras encadenar 2 victorias consecutivas ⬆️ Ascenso directo: -13",
-    "imagen": "https://instagram.fcue9-1.fna.fbcdn.net/v/t51.82787-15/669945528_18109532920890780_8327846406870756127_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&amp;_nc_ht=instagram.fcue9-1.fna.fbcdn.net&amp;_nc_cat=100&amp;_nc_oc=Q6cZ2gG2W1ZDe_hTHOJOcfrlxsgFW0nDNWa4SAtnBH43sU4M7p_3PnaPP-6LIM3He-WfLZI&amp;_nc_ohc=G7U-5x-6wzUQ7kNvwFshCju&amp;_nc_gid=9XYitpo9KUGynL7nTfQvuA&amp;edm=AOQ1c0wBAAAA&amp;ccb=7-5&amp;oh=00_Af01DlWfDrGUm2m1q0thDjWa1_zRl1FM7fjW6ud-wNpCrA&amp;oe=69E3F9CA&amp;_nc_sid=8b3546",
+    "imagen": "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2021/05/30/16224089350605.jpg",
     "fecha": "Mon, 13 Apr 2026 20:55:52 GMT",
     "contenido": "📊Fin de la jornada retro (35), el Córdoba continúa 12º, tras encadenar 2 victorias consecutivas ⬆️ Ascenso directo: -13...",
     "instagram": "https://www.instagram.com/p/DXFgFjdirdN",
