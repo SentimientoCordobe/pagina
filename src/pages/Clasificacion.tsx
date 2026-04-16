@@ -1,4 +1,4 @@
-import { clasificacion } from "../data/mockData";
+import { clasificacion } from "../data/clasificacion";
 
 export default function Clasificacion() {
   return (

@@ -1,188 +1,114 @@
-import { useState, useEffect } from "react"
-import { Calendar, Trophy } from "lucide-react"
-import { clasificacion, RESULTADOS } from "../data/mockData"
-import { noticias, type Noticia } from "../data/noticias"
-import { Link } from "react-router-dom"
+import { videos } from "../data/videos";
+import { noticias } from "../data/noticias";
+import { clasificacion } from "../data/clasificacion"
 
-export default function Index(): JSX.Element {
-
-  const destacadas: Noticia[] = noticias.filter((n) => n.destacada)
-  const secundarias: Noticia[] = noticias.filter((n) => !n.destacada)
-
-  const [slide, setSlide] = useState(0)
-
-  useEffect(() => {
-
-    if (destacadas.length === 0) return
-
-    const timer = setInterval(() => {
-      setSlide((s) => (s + 1) % destacadas.length)
-    }, 6000)
-
-    return () => clearInterval(timer)
-
-  }, [destacadas.length])
-
-  const proximoPartido = RESULTADOS.find((j) => j.victoria === null)
-
-  if (destacadas.length === 0) {
-    return <div className="container mx-auto p-6">Cargando...</div>
-  }
-
-  const noticiaPrincipal = destacadas[slide]
-
+export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
 
-      <div className="grid lg:grid-cols-[1fr_320px] gap-8">
+      {/* GRID PRINCIPAL */}
+      <div className="grid gap-8 lg:grid-cols-[320px_1fr_320px]">
 
-        {/* MAIN */}
+        {/* ───── COLUMNA IZQUIERDA (VIDEOS) ───── */}
 
-        <div className="space-y-10">
+        <aside className="space-y-6">
 
-          {/* HERO DESTACADA */}
+          <h2 className="text-xl font-bold uppercase">
+            Últimos vídeos
+          </h2>
 
-          <Link
-            to={`/noticias/${noticiaPrincipal.slug}`}
-            className="relative block rounded-xl overflow-hidden group"
-          >
+          {videos.map((v) => (
+            <div key={v.id} className="space-y-2">
 
-            <img
-  src={noticiaPrincipal.imagen ? noticiaPrincipal.imagen : "/placeholder.jpg"}
-  alt={noticiaPrincipal.titulo}
-  className="h-[420px] w-full object-cover group-hover:scale-105 transition duration-500"
-/>
+              <div className="aspect-video overflow-hidden rounded-lg">
+                <iframe
+                  src={`https://www.youtube.com/embed/${v.id}`}
+                  title={v.titulo}
+                  allowFullScreen
+                  className="h-full w-full"
+                />
+              </div>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-            <div className="absolute bottom-0 p-6 text-white">
-
-              <span className="text-xs bg-white/20 px-2 py-1 rounded">
-                Destacada
-              </span>
-
-              <h1 className="text-3xl font-bold mt-2 leading-tight">
-                {noticiaPrincipal.titulo}
-              </h1>
-
-              <p className="text-sm opacity-80 mt-2">
-                {noticiaPrincipal.fecha}
-              </p>
-
-            </div>
-
-          </Link>
-
-          {/* LISTA NOTICIAS */}
-
-          <section>
-
-            <h2 className="text-xl font-bold mb-6 uppercase">
-              Últimas noticias
-            </h2>
-
-            <div className="space-y-4">
-
-              {secundarias.map((n) => (
-
-                <Link
-                  key={n.id}
-                  to={`/noticias/${n.slug}`}
-                  className="block border-b pb-4 hover:text-primary transition"
-                >
-
-                  <p className="text-xs text-muted-foreground">
-                    {n.fecha}
-                  </p>
-
-                  <h3 className="font-semibold text-lg leading-snug">
-                    {n.titulo}
-                  </h3>
-
-                  <p className="text-sm text-muted-foreground line-clamp-2">
-                    {n.resumen}
-                  </p>
-
-                </Link>
-
-              ))}
-
-            </div>
-
-          </section>
-
-        </div>
-
-        {/* SIDEBAR */}
-
-        <aside className="space-y-6 sticky top-6 h-fit">
-
-          {/* PROXIMO PARTIDO */}
-
-          {proximoPartido && (
-
-            <div className="bg-primary text-primary-foreground rounded-xl p-5">
-
-              <h3 className="flex items-center gap-2 text-sm font-bold uppercase text-secondary mb-3">
-                <Calendar size={16} /> Próximo Partido
+              <h3 className="text-sm font-semibold leading-tight">
+                {v.titulo}
               </h3>
 
-              <p className="text-lg font-bold">
-
-                {proximoPartido.local ? "Córdoba CF" : proximoPartido.rival}
-
-                <span className="mx-2 text-secondary">vs</span>
-
-                {proximoPartido.local ? proximoPartido.rival : "Córdoba CF"}
-
-              </p>
-
-              <p className="text-sm mt-1">
-                {proximoPartido.fecha}
+              <p className="text-xs text-muted-foreground">
+                {v.fecha}
               </p>
 
             </div>
+          ))}
 
-          )}
+        </aside>
 
-          {/* CLASIFICACION COMPLETA */}
+        {/* ───── CENTRO (NOTICIAS) ───── */}
 
-          <div className="rounded-xl border bg-card p-5">
+        <main className="space-y-8">
 
-            <h3 className="flex items-center gap-2 text-sm font-bold uppercase text-secondary mb-3">
-              <Trophy size={16} /> Clasificación
-            </h3>
+          {noticias.map((n) => (
+            <article
+              key={n.id}
+              className="overflow-hidden rounded-xl border bg-card shadow-sm hover:shadow-md transition"
+            >
+
+              <img
+                src={n.imagen}
+                alt={n.titulo}
+                className="h-60 w-full object-cover"
+              />
+
+              <div className="p-6">
+
+                <h2 className="text-2xl font-bold leading-snug">
+                  {n.titulo}
+                </h2>
+
+                <p className="mt-3 text-muted-foreground">
+                  {n.resumen}
+                </p>
+
+              </div>
+
+            </article>
+          ))}
+
+        </main>
+
+        {/* ───── DERECHA (CLASIFICACIÓN) ───── */}
+
+        <aside>
+
+          <h2 className="mb-4 text-xl font-bold uppercase">
+            Clasificación
+          </h2>
+
+          <div className="rounded-lg border">
 
             <table className="w-full text-sm">
 
-              <thead className="text-xs text-muted-foreground">
+              <thead className="bg-muted">
                 <tr>
-                  <th className="text-left">#</th>
-                  <th className="text-left">Equipo</th>
-                  <th className="text-right">Pts</th>
+                  <th className="p-2 text-left">#</th>
+                  <th className="p-2 text-left">Equipo</th>
+                  <th className="p-2 text-right">Pts</th>
                 </tr>
               </thead>
 
               <tbody>
 
                 {clasificacion.map((e) => (
-
                   <tr key={e.posicion} className="border-t">
 
-                    <td className="py-1">
-                      {e.posicion}
-                    </td>
+                    <td className="p-2">{e.posicion}</td>
 
-                    <td>
-                      {e.equipo}
-                    </td>
+                    <td className="p-2">{e.equipo}</td>
 
-                    <td className="text-right font-bold">
+                    <td className="p-2 text-right font-semibold">
                       {e.puntos}
                     </td>
 
                   </tr>
-
                 ))}
 
               </tbody>
@@ -191,48 +117,10 @@ export default function Index(): JSX.Element {
 
           </div>
 
-          {/* REDES SOCIALES */}
-
-          <div className="rounded-lg border bg-card p-5 shadow-sm">
-
-            <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-secondary">
-              Redes Sociales
-            </h3>
-
-            <div className="space-y-2 text-sm text-muted-foreground">
-
-              <p>
-                <a href="https://x.com/Sent_Cordobe" target="_blank">
-                  🐦 Twitter: @SentCordoba
-                </a>
-              </p>
-
-              <p>
-                <a href="https://www.instagram.com/sentimiento_cordobe/" target="_blank">
-                  📸 Instagram: @sentimientocordobe
-                </a>
-              </p>
-
-              <p>
-                <a href="https://www.youtube.com/@SentimientoCordobe" target="_blank">
-                  📺 YouTube: Sentimiento Cordobé
-                </a>
-              </p>
-
-              <p>
-                <a href="https://www.tiktok.com/@sentimiento_cordobe" target="_blank">
-                  🎵 TikTok: @sentimiento_cordobe
-                </a>
-              </p>
-
-            </div>
-
-          </div>
-
         </aside>
 
       </div>
 
     </div>
-  )
+  );
 }

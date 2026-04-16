@@ -29,7 +29,7 @@ export default function Calendario() {
             className="flex items-center gap-4 rounded-lg border bg-card p-4 shadow-sm transition-shadow hover:shadow-md"
           >
             {/* Estado badge */}
-            <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-sm font-bold ${estadoColors[j.victoria === true ? 'victoria' : j.victoria === false ? 'derrota' : j.victoria === null ? 'empate': 'pendiente']}`}>
+            <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-sm font-bold ${estadoColors[j.victoria === true ? 'victoria' : j.victoria === false ? 'derrota' : j.victoria === null  && j.empate==true ? 'empate' :  j.empate==false ? 'pendiente' :]}`}>
             </div>
 
             {/* Info */}
