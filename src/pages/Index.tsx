@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { videos } from "../data/videos";
 import { clasificacion } from "../data/clasificacion";
+import { Twitter, Instagram, Youtube } from "lucide-react";
+import { IoLogoTiktok } from "react-icons/io5";
 
 export default function Home() {
 
@@ -39,7 +41,14 @@ export default function Home() {
           <h2 className="text-xl font-bold uppercase">
             Últimos vídeos
           </h2>
-
+ <div className="aspect-video overflow-hidden rounded-lg">
+                <iframe
+                  src={`https://www.youtube.com/embed/watch?v=2mJQnH9vZ0M`}
+                  title={`Victoria en el Reino por 2-1 ante el Zaragoza`}
+                  allowFullScreen
+                  className="h-full w-full"
+                />
+              </div>
           {videos.map((v) => (
             <div key={v.id} className="space-y-2">
 
@@ -139,6 +148,52 @@ export default function Home() {
             </table>
 
           </div>
+          <div className="rounded-lg border bg-card p-5 shadow-sm">
+            <h4 className="font-display text-sm font-bold uppercase tracking-wider text-secondary">
+              Síguenos en REDES SOCIALES
+            </h4>
+
+            <div className="flex gap-5">
+              <a
+                href="https://x.com/Sent_Cordobe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/70 transition-all hover:text-black hover:scale-110"
+                aria-label="X Sentimiento Cordobé"
+              >
+                <Twitter size={24} />
+              </a>
+
+              <a
+                href="https://www.instagram.com/sentimiento_cordobe/?hl=es"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/70 transition-all hover:text-pink-500 hover:scale-110"
+                aria-label="Instagram Sentimiento Cordobé"
+              >
+                <Instagram size={24} />
+              </a>
+
+              <a
+                href="https://www.youtube.com/@SentimientoCordobe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/70 transition-all hover:text-red-600 hover:scale-110"
+                aria-label="YouTube Sentimiento Cordobé"
+              >
+                <Youtube size={24} />
+              </a>
+
+              <a href="https://www.tiktok.com/@sentimiento_cordobe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/70 transition-all hover:text-black hover:scale-110"
+                aria-label="TikTok Sentimiento Cordobé">
+                                  <IoLogoTiktok size={24} />
+
+                </a>
+            </div>
+            </div>
 
         </aside>
 
