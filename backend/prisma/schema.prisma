@@ -6,3 +6,41 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Noticia {
+  id        Int    @id @default(autoincrement())
+  slug      String @unique
+  titulo    String
+  resumen   String
+  imagen    String
+  contenido String
+  fecha     String
+  instagram String?
+  destacada Boolean @default(false)
+}
+
+model Video {
+  id        String @id
+  titulo    String
+  resumen   String
+  miniatura String
+  fecha     String
+  youtube   String
+}
+
+model Partido {
+  id        Int @id @default(autoincrement())
+  rival     String
+  resultado String
+  fecha     String
+  youtube   String
+  miniatura String
+  local     Boolean
+}
+
+model Clasificacion {
+  id       Int @id @default(autoincrement())
+  posicion Int
+  equipo   String
+  puntos   Int
+}
