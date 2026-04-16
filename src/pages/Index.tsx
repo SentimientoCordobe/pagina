@@ -1,8 +1,31 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { videos } from "../data/videos";
-import { noticias } from "../data/noticias";
-import { clasificacion } from "../data/clasificacion"
+import { clasificacion } from "../data/clasificacion";
 
 export default function Home() {
+
+  const [noticias, setNoticias] = useState<any[]>([]);
+
+  useEffect(() => {
+    async function cargarNoticias() {
+      try {
+        const res = await fetch("http://localhost:3001/noticias");
+        const data = await res.json();
+        setNoticias(data);
+      } catch (error) {
+        console.log("Usando noticias locales");
+
+        // fallback si backend no está activo
+        const localNoticias = await import("../data/noticias");
+        setNoticias(localNoticias.noticias);
+      }
+    }
+
+    cargarNoticias();
+  }, []);
+
   return (
     <div className="container mx-auto px-4 py-8">
 
