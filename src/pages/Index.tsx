@@ -43,8 +43,8 @@ export default function Index(): JSX.Element {
             <div className="space-y-2">
               <div className="aspect-video overflow-hidden rounded-lg">
                 <iframe
-                  src="https://www.youtube.com/embed/2mJQnH9vZ0M"
-                  title={`Victoria en el Reino por 2-1 ante el Zaragoza`}
+                  src={"https://www.youtube.com/embed/$2mJQnH9vZ0M"}
+                  title={`Victoria por 2-1 ante el Zaragoza`}
                   allowFullScreen
                   className="h-full w-full"
                 />
