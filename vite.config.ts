@@ -7,11 +7,16 @@ import componentTagger from "vite-plugin-component-tagger";
 export default defineConfig(({ mode }) => {
   return {
     server: {
+ 
       host: "::",
       port: 8080,
       hmr: {
         overlay: false,
-      },
+      }, 
+      proxy: {
+    "/api": "http://localhost:3001"
+  }
+
     },
     plugins: [
       react(),
