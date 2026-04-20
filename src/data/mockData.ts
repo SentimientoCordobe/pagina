@@ -1,4 +1,4 @@
-import type { Noticia } from "./noticias"
+import type { Noticia } from "../../api/noticias"
 export type { Noticia }
 
 // ── Jugadores (Plantilla Córdoba CF 2025/26) ──

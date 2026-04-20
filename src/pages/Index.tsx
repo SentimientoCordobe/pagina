@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { videos } from "../data/videos"
+import { videos } from "../../api/videos"
 import { clasificacion } from "../data/clasificacion"
 import { Twitter, Instagram, Youtube } from "lucide-react"
 import { IoLogoTiktok } from "react-icons/io5"
@@ -19,11 +19,11 @@ export default function Index(): JSX.Element {
   useEffect(() => {
     async function cargarNoticias() {
       try {
-        const res = await fetch("http://localhost:3001/api/noticias")
+        const res = await fetch("/api/noticias")
         const data = await res.json()
         setNoticias(data)
       } catch {
-        const localNoticias = await import("../data/noticias")
+        const localNoticias = await import("../../api/noticias")
         setNoticias(localNoticias.noticias)
       }
     }
