@@ -1,4 +1,4 @@
-import { videos } from "../../api/videos"
+import { videos } from "../data/videos"
 import { Play } from "lucide-react"
 
 export default function Videos(): JSX.Element {

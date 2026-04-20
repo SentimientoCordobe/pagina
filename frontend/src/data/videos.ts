@@ -1,4 +1,4 @@
-// ── Partidos (Resúmenes YouTube) ──
+
 export interface Videos {
   id: string;
   titulo: string;
@@ -8,7 +8,7 @@ export interface Videos {
   youtube: string;
 }
 
-export const videos: Videos[] = [
+export function Videos() {
    {
      id: "GG660uVUp_Q",
      titulo: "ASÍ se VIVE un PARTIDO en PALCO VIP del CÓRDOBA CF",
@@ -41,4 +41,6 @@ export const videos: Videos[] = [
      fecha: "10 Nov 2025",
      youtube: "https://www.youtube.com/watch?v=wlfQHoZOccs"
    },
-  ]
+    ])
+  }
+  

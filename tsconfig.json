@@ -24,5 +24,5 @@
     /* Project references */
     "composite": true
   },
-  "include": ["src", "api/noticias.ts", "api/partidos.ts", "api/videos.ts", "api/clasificacion.ts"]
+  "include": ["frontend/src", "frontend/src/data/noticias.ts", "frontend/src/data/partidos.ts", "frontend/src/datfrontend/src/data/clasificacion.tslasificacion.ts"]
 }

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { noticias, type Noticia } from "../../api/noticias"
+import { noticias, type Noticia } from "../data/noticias"
 import InstagramEmbed from "../components/InstagramEmbed"
 
 export default function Noticia(): JSX.Element {

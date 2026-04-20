@@ -1,4 +1,4 @@
-import { partidos } from "../../api/partidos";
+import { partidos } from "../data/partidos";
 import { Play } from "lucide-react";
 
 export default function Partidos() {

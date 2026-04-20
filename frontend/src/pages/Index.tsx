@@ -1,36 +1,11 @@
-import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { videos } from "../../api/videos"
-import { clasificacion } from "../../api/clasificacion"
+import { videos } from "../data/videos"
+import { clasificacion } from "../data/clasificacion"
+import { noticias } from "../data/noticias"
 import { Twitter, Instagram, Youtube } from "lucide-react"
 import { IoLogoTiktok } from "react-icons/io5"
 
-type NoticiaItem = {
-  id: number
-  titulo: string
-  resumen: string
-  imagen: string
-  slug: string
-}
-
 export default function Index(): JSX.Element {
-  const [noticias, setNoticias] = useState<NoticiaItem[]>([])
-
-  useEffect(() => {
-    async function cargarNoticias() {
-      try {
-        const res = await fetch("/api/noticias")
-        const data = await res.json()
-        setNoticias(data)
-      } catch {
-        const localNoticias = await import("../../api/noticias")
-        setNoticias(localNoticias.noticias)
-      }
-    }
-
-    cargarNoticias()
-  }, [])
-
   const videoPrincipalId = videos[0]?.id
 
   return (
@@ -41,20 +16,12 @@ export default function Index(): JSX.Element {
 
           {videoPrincipalId && (
             <div className="space-y-2">
-              <div className="aspect-video overflow-hidden rounded-lg">
-                <iframe
-                  src={"https://www.youtube.com/embed/k5WbtUpnNAw?"}
-                  title={`Victoria por 1-2 ante La Cultural`}
-                  allowFullScreen
-                  className="h-full w-full"
-                />
-              </div>
-              <div className="aspect-video overflow-hidden rounded-lg">
+              <div className="relative w-full pt-[56.25%] overflow-hidden rounded-lg">
                 <iframe
                   src={`https://www.youtube.com/embed/${videoPrincipalId}`}
-                  title="Vídeo principal"
+                  title={videos[0].titulo}
                   allowFullScreen
-                  className="h-full w-full"
+                  className="absolute inset-0 h-full w-full"
                 />
               </div>
 
@@ -70,12 +37,12 @@ export default function Index(): JSX.Element {
 
           {videos.slice(1).map((v) => (
             <div key={v.id} className="space-y-2">
-              <div className="aspect-video overflow-hidden rounded-lg">
+              <div className="relative w-full pt-[56.25%] overflow-hidden rounded-lg">
                 <iframe
                   src={`https://www.youtube.com/embed/${v.id}`}
                   title={v.titulo}
                   allowFullScreen
-                  className="h-full w-full"
+                  className="absolute inset-0 h-full w-full"
                 />
               </div>
 
@@ -133,9 +100,7 @@ export default function Index(): JSX.Element {
 
         <aside className="space-y-6">
           <div>
-            <h2 className="mb-4 text-xl font-bold uppercase">
-              Clasificación
-            </h2>
+            <h2 className="mb-4 text-xl font-bold uppercase">Clasificación</h2>
 
             <div className="rounded-lg border">
               <table className="w-full text-sm">
@@ -168,43 +133,16 @@ export default function Index(): JSX.Element {
             </h4>
 
             <div className="mt-4 flex gap-5">
-              <a
-                href="https://x.com/Sent_Cordobe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all hover:scale-110 hover:text-black"
-                aria-label="X Sentimiento Cordobé"
-              >
+              <a href="https://x.com/Sent_Cordobe" target="_blank" rel="noopener noreferrer" aria-label="X">
                 <Twitter size={24} />
               </a>
-
-              <a
-                href="https://www.instagram.com/sentimiento_cordobe/?hl=es"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all hover:scale-110 hover:text-pink-500"
-                aria-label="Instagram Sentimiento Cordobé"
-              >
+              <a href="https://www.instagram.com/sentimiento_cordobe/?hl=es" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <Instagram size={24} />
               </a>
-
-              <a
-                href="https://www.youtube.com/@SentimientoCordobe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all hover:scale-110 hover:text-red-600"
-                aria-label="YouTube Sentimiento Cordobé"
-              >
+              <a href="https://www.youtube.com/@SentimientoCordobe" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                 <Youtube size={24} />
               </a>
-
-              <a
-                href="https://www.tiktok.com/@sentimiento_cordobe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all hover:scale-110 hover:text-black"
-                aria-label="TikTok Sentimiento Cordobé"
-              >
+              <a href="https://www.tiktok.com/@sentimiento_cordobe" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                 <IoLogoTiktok size={24} />
               </a>
             </div>
