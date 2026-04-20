@@ -1,4 +1,4 @@
-import { clasificacion } from "../data/clasificacion";
+import { clasificacion } from "../../api/clasificacion";
 
 export default function Clasificacion() {
   return (

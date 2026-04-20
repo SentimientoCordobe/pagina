@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { videos } from "../../api/videos"
-import { clasificacion } from "../data/clasificacion"
+import { clasificacion } from "../../api/clasificacion"
 import { Twitter, Instagram, Youtube } from "lucide-react"
 import { IoLogoTiktok } from "react-icons/io5"
 
