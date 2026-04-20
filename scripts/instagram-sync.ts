@@ -4,8 +4,8 @@ import Parser from "rss-parser"
 import https from "https"
 
 const parser = new Parser()
-const RSS_URL = "https://rss.app/feeds/xOT5EkfkrOEzQDxg.xml"
-
+//const RSS_URL = "https://rss.app/feeds/xOT5EkfkrOEzQDxg.xml"
+const RSS_URL = "https://rsshub.app/instagram/user/sentimiento_cordobe"
 type Noticia = {
   id: number
   slug: string
