@@ -11,9 +11,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "instagram-sync": "ts-node scripts/instagram-sync.ts",
-    "prisma:generate": "prisma generate",
-    "prisma:studio": "prisma studio"
+      "instagram-sync": "ts-node scripts/scrape-instagram.ts"
+
 },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

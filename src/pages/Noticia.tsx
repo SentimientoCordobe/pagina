@@ -3,15 +3,16 @@ import { noticias, type Noticia } from "../data/noticias"
 import InstagramEmbed from "../components/InstagramEmbed"
 
 export default function Noticia(): JSX.Element {
+  
   const { slug } = useParams<{ slug: string }>()
 
   if (!slug) {
     return <div className="container mx-auto p-6">Noticia inválida</div>
   }
-
-  const noticiaEncontrada: Noticia | undefined = noticias.find(
-    (n) => n.slug === slug
-  )
+const noticiaEncontrada = noticias.find(
+  (n) => n.slug === slug
+)
+  
 
   if (!noticiaEncontrada) {
     return (

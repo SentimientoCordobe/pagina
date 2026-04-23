@@ -1,28 +1,20 @@
 /// <reference types="node" />
 
 import fs from "fs"
-import https from "https"
-import Parser from "rss-parser"
 
-const parser = new Parser()
+const USER = "sentimiento_cordobe"
+const PROFILE_URL = `https://www.instagram.com/${USER}/`
 
-const RSS_URL =
-  "https://rsshub.app/instagram/user/sentimiento_cordobe"
-
-type Item = any
-
-type Noticia = {
+type Post = {
   id: number
   slug: string
   titulo: string
-  resumen: string
   imagen: string
   fecha: string
-  contenido: string
-  instagram: string
-  tipo: "post" | "reel" | "carousel"
-  destacada?: boolean
+  url: string
 }
+
+const CACHE_FILE = "src/data/noticias.json"
 
 function slugify(text: string): string {
   return text
@@ -33,90 +25,117 @@ function slugify(text: string): string {
     .replace(/(^-|-$)/g, "")
 }
 
-function detectarTipo(url: string): Noticia["tipo"] {
-  if (url.includes("/reel/")) return "reel"
-  if (url.includes("/p/")) return "post"
-  return "carousel"
-}
-
-function fetchRSS(url: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    https
-      .get(url, (resp) => {
-        let data = ""
-
-        resp.on("data", (chunk: any) => (data += chunk))
-
-        resp.on("end", () => {
-          resolve(data)
-        })
-      })
-      .on("error", reject)
+async function fetchHTML(url: string): Promise<string> {
+  const res = await fetch(url, {
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    }
   })
+
+  if (!res.ok) {
+    throw new Error(`Error HTTP ${res.status}`)
+  }
+
+  return await res.text()
 }
 
-function extraerImagen(item: Item): string {
-  const content = item.content || ""
+function extractPostUrls(html: string): string[] {
+  const matches = [...html.matchAll(/\/p\/[a-zA-Z0-9_-]+/g)]
 
-  const posibles = [
-    item.enclosure?.url,
-    item["media:content"]?.$?.url,
-    item["media:thumbnail"]?.$?.url,
-    content.match(/src="([^"]+)"/)?.[1],
-    content.match(/https?:\/\/[^\s"]+\.(jpg|jpeg|png|webp)/)?.[0]
-  ]
-
-  return (
-    posibles.find((u) => u && !u.includes("rsshub") && !u.includes("facebook")) ||
-    "/placeholder.jpg"
+  const urls = matches.map(
+    (m) => `https://www.instagram.com${m[0]}`
   )
+
+  return [...new Set(urls)]
 }
 
-async function generarNoticias(): Promise<void> {
-  const xml = await fetchRSS(RSS_URL)
+async function fetchOEmbed(url: string) {
+  const api = `https://www.instagram.com/oembed/?url=${encodeURIComponent(url)}`
 
-  const feed = await parser.parseString(xml)
+  const res = await fetch(api)
 
-  const filePath = "src/data/noticias.json"
+  if (!res.ok) return null
 
-  let existentes: Noticia[] = []
+  return await res.json()
+}
 
-  if (fs.existsSync(filePath)) {
+async function buildPosts(urls: string[]): Promise<Post[]> {
+  const posts: Post[] = []
+
+  let id = 1
+
+  for (const url of urls.slice(0, 12)) {
     try {
-      existentes = JSON.parse(fs.readFileSync(filePath, "utf8"))
-    } catch {
-      existentes = []
+      const data = await fetchOEmbed(url)
+
+      if (!data) continue
+
+      posts.push({
+        id: id++,
+        slug: slugify(data.title || "instagram-post"),
+        titulo: data.title || "Instagram post",
+        imagen: data.thumbnail_url || "/placeholder.jpg",
+        fecha: new Date().toISOString(),
+        url
+      })
+    } catch (err) {
+      console.log("⚠️ Error en post:", url)
     }
   }
 
-  const urls = new Set(existentes.map((n) => n.instagram))
-
-  const nuevas: Noticia[] = (feed.items || [])
-    .filter((item: any) => item.link && !urls.has(item.link))
-    .map((item: any, i: number) => {
-      const titulo = item.title || "Publicación"
-
-      return {
-        id: existentes.length + i + 1,
-        slug: `${slugify(titulo)}-${i}`,
-        titulo,
-        resumen: titulo.slice(0, 140),
-        imagen: extraerImagen(item),
-        fecha: item.pubDate || "",
-        contenido: titulo,
-        instagram: item.link,
-        tipo: detectarTipo(item.link || ""),
-        destacada: false
-      }
-    })
-
-  const final = [...nuevas, ...existentes]
-
-  if (final.length) final[0].destacada = true
-
-  fs.writeFileSync(filePath, JSON.stringify(final, null, 2))
-
-  console.log(`✔ Noticias sincronizadas: ${nuevas.length}`)
+  return posts
 }
 
-generarNoticias().catch(console.error)
+function loadCache(): Post[] {
+  if (!fs.existsSync(CACHE_FILE)) return []
+
+  try {
+    return JSON.parse(fs.readFileSync(CACHE_FILE, "utf8"))
+  } catch {
+    return []
+  }
+}
+
+function saveCache(data: Post[]) {
+  fs.writeFileSync(CACHE_FILE, JSON.stringify(data, null, 2), "utf8")
+}
+
+async function generarNoticias() {
+  console.log("🔄 Scrapeando Instagram (modo estable)...")
+
+  try {
+    const html = await fetchHTML(PROFILE_URL)
+
+    const urls = extractPostUrls(html)
+
+    if (!urls.length) {
+      console.log("⚠️ No se encontraron posts en el HTML")
+      return
+    }
+
+    const posts = await buildPosts(urls)
+
+    const cache = loadCache()
+
+    const seen = new Set(cache.map((p) => p.url))
+
+    const nuevos = posts.filter((p) => !seen.has(p.url))
+
+    const final = [...nuevos, ...cache]
+
+    saveCache(final)
+
+    console.log(`✔ Nuevos posts: ${nuevos.length}`)
+    console.log(`✔ Total posts: ${final.length}`)
+  } catch (err) {
+    console.error("❌ Error scraping Instagram:", err)
+
+    console.log("↩️ Usando cache como fallback")
+
+    const cache = loadCache()
+    saveCache(cache)
+  }
+}
+
+generarNoticias()
