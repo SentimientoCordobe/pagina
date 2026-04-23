@@ -1,4 +1,7 @@
+<<<<<<< HEAD:frontend/src/data/clasificacion.ts
 // src/data/clasificacion.ts
+=======
+>>>>>>> 79a4007 (as):src/data/clasificacion.ts
 export interface EquipoClasificacion {
   posicion: number
   equipo: string
@@ -36,4 +39,8 @@ export const clasificacion: EquipoClasificacion[] = [
   { posicion: 20, equipo: "Zaragoza", puntos: 32, pj: 35, pg: 7, pe: 11, pp: 17, gf: 29, gc: 48, dg: -19 },
   { posicion: 21, equipo: "Cultural Leonesa", puntos: 31, pj: 35, pg: 8, pe: 7, pp: 20, gf: 32, gc: 56, dg: -24 },
   { posicion: 22, equipo: "Mirandés", puntos: 30, pj: 35, pg: 7, pe: 9, pp: 19, gf: 34, gc: 55, dg: -21 },
+<<<<<<< HEAD:frontend/src/data/clasificacion.ts
 ];
+=======
+];
+>>>>>>> 79a4007 (as):src/data/clasificacion.ts
