@@ -3,19 +3,25 @@ import { noticias, type Noticia } from "../data/noticias"
 import InstagramEmbed from "../components/InstagramEmbed"
 
 export default function Noticia(): JSX.Element {
-
   const { slug } = useParams<{ slug: string }>()
+
+  if (!slug) {
+    return <div className="container mx-auto p-6">Noticia inválida</div>
+  }
 
   const noticiaEncontrada: Noticia | undefined = noticias.find(
     (n) => n.slug === slug
   )
 
   if (!noticiaEncontrada) {
-    return <div className="container mx-auto p-6">Noticia no encontrada</div>
+    return (
+      <div className="container mx-auto p-6">
+        Noticia no encontrada
+      </div>
+    )
   }
 
   return (
-
     <div className="container mx-auto px-4 py-10 max-w-3xl">
 
       <img
@@ -39,8 +45,6 @@ export default function Noticia(): JSX.Element {
       {noticiaEncontrada.instagram && (
         <InstagramEmbed url={noticiaEncontrada.instagram} />
       )}
-
     </div>
-
   )
 }
