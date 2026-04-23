@@ -24,5 +24,5 @@
     /* Project references */
     "composite": true
   },
-  "include": ["frontend/src", "frontend/src/data/noticias.ts", "frontend/src/data/partidos.ts", "frontend/src/datfrontend/src/data/clasificacion.tslasificacion.ts"]
+  "include": ["src", "src/data/noticias.ts", "src/data/partidos.ts", "src/datfrontend/src/data/clasificacion.tslasificacion.ts"]
 }

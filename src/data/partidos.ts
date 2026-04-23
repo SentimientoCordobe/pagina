@@ -1,3 +1,4 @@
+import type { Noticia } from "./noticias";
 
 export interface Partido {
   rival: string;
@@ -291,6 +292,7 @@ export const partidos: Partido[] = [
   },
 ];
 
+export type { Noticia };
 
 // ── Jugadores (Plantilla Córdoba CF 2025/26) ──
 export interface Jugador {

@@ -1,110 +1,154 @@
-import { videos } from "../data/videos";
-import { noticias } from "../data/noticias";
-import { clasificacion } from "../data/clasificacion";
+import { Link } from "react-router-dom"
+import { videos } from "../data/videos"
+import { clasificacion } from "../data/clasificacion"
+import { noticias } from "../data/noticias"
+import { Twitter, Instagram, Youtube } from "lucide-react"
+import { IoLogoTiktok } from "react-icons/io5"
 
-export default function Home() {
-  // Las constantes se definen aquí, fuera del return
-  const videoPrincipalId = videos[0]?.id;
+export default function Index(): JSX.Element {
+  const videoPrincipalId = videos[0]?.id
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* GRID PRINCIPAL */}
       <div className="grid gap-8 lg:grid-cols-[320px_1fr_320px]">
-        
-        {/* ───── IZQUIERDA (VÍDEOS) ───── */}
         <aside className="space-y-6">
           <h2 className="text-xl font-bold uppercase">Últimos vídeos</h2>
 
           {videoPrincipalId && (
             <div className="space-y-2">
-              {/* Opcional: El vídeo fijo que tenías arriba */}
-              <div className="aspect-video overflow-hidden rounded-lg">
-                <iframe
-                  src={"https://www.youtube.com/embed/k5WbtUpnNAw"}
-                  title={`Victoria por 1-2 ante La Cultural`}
-                  allowFullScreen
-                  className="h-full w-full"
-                />
-              </div>
-
-              {/* El vídeo principal dinámico */}
-              <div className="aspect-video overflow-hidden rounded-lg">
+              <div className="relative w-full pt-[56.25%] overflow-hidden rounded-lg">
                 <iframe
                   src={`https://www.youtube.com/embed/${videoPrincipalId}`}
-                  title="Vídeo principal"
+                  title={videos[0].titulo}
                   allowFullScreen
-                  className="h-full w-full"
+                  className="absolute inset-0 h-full w-full"
                 />
               </div>
 
               <h3 className="text-sm font-semibold leading-tight">
                 {videos[0].titulo}
               </h3>
+
               <p className="text-xs text-muted-foreground">
                 {videos[0].fecha}
               </p>
             </div>
           )}
 
-          {/* Resto de vídeos */}
           {videos.slice(1).map((v) => (
             <div key={v.id} className="space-y-2">
-              <div className="aspect-video overflow-hidden rounded-lg">
+              <div className="relative w-full pt-[56.25%] overflow-hidden rounded-lg">
                 <iframe
                   src={`https://www.youtube.com/embed/${v.id}`}
                   title={v.titulo}
                   allowFullScreen
-                  className="h-full w-full"
+                  className="absolute inset-0 h-full w-full"
                 />
               </div>
-              <h3 className="text-sm font-semibold leading-tight">{v.titulo}</h3>
+
+              <h3 className="text-sm font-semibold leading-tight">
+                {v.titulo}
+              </h3>
+
               <p className="text-xs text-muted-foreground">{v.fecha}</p>
             </div>
           ))}
         </aside>
 
-        {/* ───── CENTRO (NOTICIAS) ───── */}
-        <main className="space-y-8">
-          {noticias.map((n) => (
-            <article
-              key={n.id}
-              className="overflow-hidden rounded-xl border bg-card shadow-sm hover:shadow-md transition"
-            >
-              <img src={n.imagen} alt={n.titulo} className="h-60 w-full object-cover" />
-              <div className="p-6">
-                <h2 className="text-2xl font-bold leading-snug">{n.titulo}</h2>
-                <p className="mt-3 text-muted-foreground">{n.resumen}</p>
-              </div>
-            </article>
+        <main className="grid gap-8 md:grid-cols-1">
+          {noticias.map((n, i) => (
+            <Link key={n.id} to={`/noticia/${n.slug}`} className="group">
+              <article
+                className={`overflow-hidden rounded-xl border bg-card shadow-sm transition hover:shadow-lg ${
+                  i === 0 ? "md:col-span-2" : ""
+                }`}
+              >
+                <div className="relative">
+                  <img
+                    src={n.imagen}
+                    alt={n.titulo}
+                    loading="lazy"
+                    className={`w-full object-cover transition group-hover:scale-105 ${
+                      i === 0 ? "h-96" : "h-60"
+                    }`}
+                  />
+
+                  {i === 0 && (
+                    <div className="absolute inset-0 flex items-end bg-black/40 p-8">
+                      <h2 className="text-3xl font-bold leading-snug text-white md:text-4xl">
+                        {n.titulo}
+                      </h2>
+                    </div>
+                  )}
+                </div>
+
+                {i !== 0 && (
+                  <div className="p-6">
+                    <h2 className="text-2xl font-bold leading-snug transition group-hover:text-blue-600">
+                      {n.titulo}
+                    </h2>
+
+                    <p className="mt-3 text-muted-foreground">
+                      {n.resumen}
+                    </p>
+                  </div>
+                )}
+              </article>
+            </Link>
           ))}
         </main>
 
-        {/* ───── DERECHA (CLASIFICACIÓN) ───── */}
-        <aside>
-          <h2 className="mb-4 text-xl font-bold uppercase">Clasificación</h2>
-          <div className="rounded-lg border">
-            <table className="w-full text-sm">
-              <thead className="bg-muted">
-                <tr>
-                  <th className="p-2 text-left">#</th>
-                  <th className="p-2 text-left">Equipo</th>
-                  <th className="p-2 text-right">Pts</th>
-                </tr>
-              </thead>
-              <tbody>
-                {clasificacion.map((e) => (
-                  <tr key={e.posicion} className="border-t">
-                    <td className="p-2">{e.posicion}</td>
-                    <td className="p-2">{e.equipo}</td>
-                    <td className="p-2 text-right font-semibold">{e.puntos}</td>
+        <aside className="space-y-6">
+          <div>
+            <h2 className="mb-4 text-xl font-bold uppercase">Clasificación</h2>
+
+            <div className="rounded-lg border">
+              <table className="w-full text-sm">
+                <thead className="bg-muted">
+                  <tr>
+                    <th className="p-2 text-left">#</th>
+                    <th className="p-2 text-left">Equipo</th>
+                    <th className="p-2 text-right">Pts</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+
+                <tbody>
+                  {clasificacion.map((e) => (
+                    <tr key={e.posicion} className="border-t">
+                      <td className="p-2">{e.posicion}</td>
+                      <td className="p-2">{e.equipo}</td>
+                      <td className="p-2 text-right font-semibold">
+                        {e.puntos}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="rounded-lg border bg-card p-5 shadow-sm">
+            <h4 className="font-display text-sm font-bold uppercase tracking-wider text-secondary">
+              Síguenos en redes sociales
+            </h4>
+
+            <div className="mt-4 flex gap-5">
+              <a href="https://x.com/Sent_Cordobe" target="_blank" rel="noopener noreferrer" aria-label="X">
+                <Twitter size={24} />
+              </a>
+              <a href="https://www.instagram.com/sentimiento_cordobe/?hl=es" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Instagram size={24} />
+              </a>
+              <a href="https://www.youtube.com/@SentimientoCordobe" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <Youtube size={24} />
+              </a>
+              <a href="https://www.tiktok.com/@sentimiento_cordobe" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <IoLogoTiktok size={24} />
+              </a>
+            </div>
           </div>
         </aside>
-
       </div>
     </div>
-  );
+  )
 }
