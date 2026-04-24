@@ -1,6 +1,10 @@
-import fs from "node:fs";
+import fs from "node:fs"
+import Parser from "rss-parser"
 
-const BASE_URL = "https://www.instagram.com/sentimiento_cordobe/"
+const parser = new Parser()
+
+const FEED_URL = "https://rsshub.app/instagram/user/sentimiento_cordobe"
+const CACHE_FILE = "src/data/noticias.json"
 
 type Post = {
   id: number
@@ -11,8 +15,6 @@ type Post = {
   url: string
 }
 
-const CACHE_FILE = "src/data/noticias.json"
-
 function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -20,56 +22,6 @@ function slugify(text: string): string {
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "")
-}
-
-async function fetchPage(url: string): Promise<string> {
-  const res = await fetch(url, {
-    headers: {
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-    }
-  })
-
-  return await res.text()
-}
-
-/**
- * Extrae posts del HTML de Instagram
- * (usa JSON embebido en el HTML)
- */
-function extractPosts(html: string): Post[] {
-  try {
-    const sharedDataMatch = html.match(
-      /window\._sharedData\s*=\s*(\{.*?\});/
-    )
-
-    if (!sharedDataMatch) return []
-
-    const data = JSON.parse(sharedDataMatch[1])
-
-    const edges =
-      data?.entry_data?.ProfilePage?.[0]?.graphql?.user
-        ?.edge_owner_to_timeline_media?.edges || []
-
-    return edges.map((edge: any, i: number) => {
-      const node = edge.node
-
-      const caption =
-        node.edge_media_to_caption?.edges?.[0]?.node?.text || "Instagram post"
-
-      return {
-        id: i + 1,
-        slug: `${slugify(caption)}-${i}`,
-        titulo: caption,
-        imagen: node.display_url,
-        fecha: new Date(node.taken_at_timestamp * 1000).toISOString(),
-        url: `https://www.instagram.com/p/${node.shortcode}/`
-      }
-    })
-  } catch (err) {
-    console.error("Error parsing Instagram HTML:", err)
-    return []
-  }
 }
 
 function loadCache(): Post[] {
@@ -87,33 +39,40 @@ function saveCache(data: Post[]) {
 
 async function generarNoticias() {
   try {
-    console.log("🔄 Scrapeando Instagram...")
+    console.log("🔄 Cargando RSS de Instagram...")
 
-    const html = await fetchPage(BASE_URL)
+    const feed = await parser.parseURL(FEED_URL)
 
-    const posts = extractPosts(html)
-
-    if (!posts.length) {
-      console.log("⚠️ No se encontraron posts, usando cache")
+    if (!feed.items.length) {
+      console.log("⚠️ RSS vacío, usando cache")
       return
     }
 
-    const cache = loadCache()
+    const posts: Post[] = feed.items.map((item, i) => ({
+      id: i + 1,
+      slug: slugify(item.title || `post-${i}`),
+      titulo: item.title || "Instagram post",
+      imagen:
+        item.enclosure?.url ||
+        item.content?.match(/<img.*?src="(.*?)"/)?.[1] ||
+        "",
+      fecha: item.pubDate || new Date().toISOString(),
+      url: item.link || ""
+    }))
 
+    const cache = loadCache()
     const seen = new Set(cache.map((p) => p.url))
 
     const nuevos = posts.filter((p) => !seen.has(p.url))
-
     const final = [...nuevos, ...cache]
 
     saveCache(final)
 
-    console.log(`✔ Posts nuevos: ${nuevos.length}`)
-    console.log(`✔ Total posts: ${final.length}`)
+    console.log(`✔ Nuevos: ${nuevos.length}`)
+    console.log(`✔ Total: ${final.length}`)
   } catch (err) {
-    console.error("❌ Error scraping:", err)
-
-    console.log("↩️ Fallback a cache")
+    console.error("❌ Error:", err)
+    console.log("↩️ Usando cache")
 
     const cache = loadCache()
     saveCache(cache)
