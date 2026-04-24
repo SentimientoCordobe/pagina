@@ -13,9 +13,9 @@ export const videos: Video[] = [
     id: "2H6qksTNcCQ", 
     titulo: "Cultural Leonesa - Córdoba: 2-1",
 resumen: "Jornada 36",    
-     miniatura: "https://img.youtube.com/vi/k5WbtUpnNAw/maxresdefault.jpg",
+     miniatura: "https://img.youtube.com/vi/pEQkoJHDLDs/maxresdefault.jpg",
     fecha: "18 de Abr 2026",
-    youtube: "https://www.youtube.com/watch?v=k5WbtUpnNAw",
+    youtube: "https://www.youtube.com/watch?v=pEQkoJHDLDs",
 }, 
   {
     id: "2mJQnH9vZ0M",

@@ -14,8 +14,8 @@ export const partidos: Partido[] = [
     rival: "Cultural Leonesa",
     resultado: "2-1",
     fecha: "18 de Abr 2026",
-    youtube: "https://www.youtube.com/watch?v=k5WbtUpnNAw",
-     miniatura: "https://img.youtube.com/vi/k5WbtUpnNAw/maxresdefault.jpg",
+    youtube: "https://www.youtube.com/watch?v=pEQkoJHDLDs",
+     miniatura: "https://img.youtube.com/vi/pEQkoJHDLDs/maxresdefault.jpg",
     local: false,}, 
   {
     rival: "Zaragoza",
