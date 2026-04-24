@@ -10,7 +10,14 @@ export interface Partido {
 }
 
 export const partidos: Partido[] = [
-   {
+    {
+    rival: "Cultural Leonesa",
+    resultado: "2-1",
+    fecha: "18 de Abr 2026",
+    youtube: "https://www.youtube.com/watch?v=2H6qksTNcCQ&t=1s",
+     miniatura: "https://img.youtube.com/vi/2H6qksTNcCQ/maxresdefault.jpg",
+    local: false,}, 
+  {
     rival: "Zaragoza",
     resultado: "1-0",
     fecha: "11 Abr 2026",

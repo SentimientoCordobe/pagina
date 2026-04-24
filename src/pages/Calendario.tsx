@@ -29,10 +29,13 @@ export default function Calendario() {
 
           let estado: Estado = "pendiente";
 
-          if (j.victoria === true) estado = "victoria";
-          else if (j.victoria === false) estado = "derrota";
-          else if (j.empate === true) estado = "empate";
-
+if (j.empate === true) {
+  estado = "empate";
+} else if (j.victoria === true) {
+  estado = "victoria";
+} else if (j.victoria === false) {
+  estado = "derrota";
+}
           return (
             <div
               key={j.jornada}

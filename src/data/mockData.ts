@@ -85,8 +85,7 @@ export const RESULTADOS: Jornada[] = [
   { jornada: 33, fecha: "31/03/2026", rival: "RC Deportivo", estadio: "Riazor", resultado: "2 - 0", local: false, victoria: false,empate: false  },
   { jornada: 34, fecha: "04/04/2026", rival: "Cádiz CF", estadio: "Nuevo Mirandilla", resultado: "1 - 3", local: false, victoria: true,empate: false  },
   { jornada: 35, fecha: "11/04/2026", rival: "Real Zaragoza", estadio: "Nuevo Arcángel", resultado: "1 - 0", local: true, victoria: true,empate: false  },
-  // Partidos no disputados (victoria: null)
-  { jornada: 36, fecha: "18/04/2026", rival: "Cultural Leonesa", estadio: "Reino de León", resultado: "", local: false, victoria: null,empate: false  },
+  { jornada: 36, fecha: "18/04/2026", rival: "Cultural Leonesa", estadio: "Reino de León", resultado: "1-2", local: false, victoria: true ,empate: false  },
   { jornada: 37, fecha: "26/04/2026", rival: "Sporting de Gijón", estadio: "Nuevo Arcángel", resultado: "", local: true, victoria: null,empate: false  },
   { jornada: 38, fecha: "03/05/2026", rival: "CD Castellón", estadio: "SkyFi Castalia", resultado: "", local: false, victoria: null,empate: false  },
   { jornada: 39, fecha: "10/05/2026", rival: "Granada CF", estadio: "Nuevo Arcángel", resultado: "", local: true, victoria: null,empate: false  },
