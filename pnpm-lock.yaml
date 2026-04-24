@@ -5744,7 +5744,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  instagram-scraping@1.0.17:
+  instagram-sync@1.0.17:
     dependencies:
       async: 2.6.4
       axios: 0.21.4
