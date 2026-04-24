@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "instagram-sync": "ts-node scripts/scrape-instagram.ts",
+    "instagram-sync": "ts-node scripts/instagram-sync.ts",
     "prebuild": "pnpm instagram-sync"
   },
   "packageManager": "pnpm@10.0.0",
