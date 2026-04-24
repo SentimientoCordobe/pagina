@@ -1,7 +1,7 @@
 # Sentimiento Cordobé - Web del Córdoba CF
 
 ## Descripción
-Web de noticias y contenido del Córdoba CF con estética verde y dorada, inspirada en la estructura de MalagaCF.com. Incluirá el logo de "Sentimiento Cordobé" y contenido de demostración estático.
+Web de noticias y contenido del Córdoba CF con estética verde y dorada. Incluirá el logo de "Sentimiento Cordobé" y contenido de demostración estático.
 
 ## Diseño y estilo
 - **Colores principales**: Verde oscuro (#006B3F) y dorado (#C5A55A) con acentos blancos
