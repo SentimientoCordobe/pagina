@@ -1,6 +1,4 @@
-/// <reference types="node" />
-
-import fs from "fs"
+import fs from "node:fs";
 
 const BASE_URL = "https://www.instagram.com/sentimiento_cordobe/"
 
