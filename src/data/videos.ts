@@ -13,17 +13,17 @@ export const videos: Video[] = [
     id: "2H6qksTNcCQ", 
     titulo: "Cultural Leonesa - Córdoba: 2-1",
 resumen: "Jornada 36",    
-     miniatura: "https://img.youtube.com/vi/2H6qksTNcCQ/maxresdefault.jpg",
+     miniatura: "https://img.youtube.com/vi/k5WbtUpnNAw/maxresdefault.jpg",
     fecha: "18 de Abr 2026",
-    youtube: "https://www.youtube.com/watch?v=2H6qksTNcCQ&t=1s",
+    youtube: "https://www.youtube.com/watch?v=k5WbtUpnNAw",
 }, 
   {
     id: "2mJQnH9vZ0M",
     titulo: "Córdoba - Zaragoza: 1-0",
     resumen: "Jornada 35",    
-    miniatura: "https://img.youtube.com/vi/2mJQnH9vZ0M/maxresdefault.jpg",
+    miniatura: "https://img.youtube.com/vi/4y9-TAukQ8A/maxresdefault.jpg",
     fecha: "11 Abr 2026",
-    youtube: "https://www.youtube.com/watch?v=2mJQnH9vZ0M",
+    youtube: "https://www.youtube.com/watch?v=4y9-TAukQ8A",
 
   },
   {
