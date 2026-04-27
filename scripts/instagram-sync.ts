@@ -1,45 +1,77 @@
 import fs from "fs";
 import path from "path";
+import puppeteer from "puppeteer";
 
-const RSS_URL = "https://rsshub.app/instagram/user/sentimiento_cordobe";
 const OUTPUT_PATH = path.join(process.cwd(), "src/data/noticias.json");
+const INSTAGRAM_URL = "https://www.instagram.com/sentimiento_cordobe/";
 
 async function main() {
-  console.log("🔄 Obteniendo RSS de Instagram...");
+  console.log("🚀 Lanzando Puppeteer...");
 
-  const res = await fetch(RSS_URL);
+  const browser = await puppeteer.launch({
+  headless: true,
+  executablePath: "/usr/bin/chromium",
+  args: ["--no-sandbox", "--disable-setuid-sandbox"],
+});
 
-  if (!res.ok) {
-    console.error("❌ Error al obtener RSS");
+  const page = await browser.newPage();
+
+  await page.setUserAgent(
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36"
+  );
+
+  console.log("🔄 Cargando Instagram...");
+  await page.goto(INSTAGRAM_URL, { waitUntil: "networkidle2" });
+
+  // Esperar a que carguen los posts
+  await page.waitForSelector("a[href*='/p/']", { timeout: 10000 });
+
+await page.evaluate(() => {
+  window.scrollTo(0, document.body.scrollHeight);
+});
+await new Promise((r) => setTimeout(r, 2000));
+  const posts = await page.evaluate(() => {
+    const links = Array.from(document.querySelectorAll("a[href*='/p/']"));
+
+    return links.slice(0, 6).map((link, i) => {
+      const url = (link as HTMLAnchorElement).href;
+
+      return {
+        id: `instagram-${i}`,
+        titulo: "Post de Instagram",
+        resumen: "Contenido desde Instagram",
+        url,
+        fecha: new Date().toISOString(),
+        fuente: "Instagram",
+      };
+    });
+  });
+
+  await browser.close();
+
+  if (!posts.length) {
+    console.log("⚠️ No se encontraron posts, usando fallback");
+
+    const fallback = [
+      {
+        id: "fallback",
+        titulo: "Síguenos en Instagram",
+        resumen: "Visita nuestro perfil",
+        url: INSTAGRAM_URL,
+        fecha: new Date().toISOString(),
+        fuente: "Instagram",
+      },
+    ];
+
+    fs.writeFileSync(OUTPUT_PATH, JSON.stringify(fallback, null, 2));
     return;
   }
 
-  const xml = await res.text();
+  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(posts, null, 2));
 
-  // Extraer links de posts
-  const matches = [...xml.matchAll(/<link>(.*?)<\/link>/g)];
-
-  const urls = matches
-    .map((m) => m[1])
-    .filter((url) => url.includes("/p/"));
-
-  if (!urls.length) {
-    console.error("❌ No se encontraron posts en RSS");
-    return;
-  }
-
-  const noticias = urls.slice(0, 6).map((url, i) => ({
-    id: `instagram-${i}`,
-    titulo: "Post de Instagram",
-    resumen: "Contenido desde RSS",
-    url,
-    fecha: new Date().toISOString(),
-    fuente: "Instagram",
-  }));
-
-  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(noticias, null, 2));
-
-  console.log(`✅ ${noticias.length} posts guardados desde RSS`);
+  console.log(`✅ ${posts.length} posts guardados correctamente`);
 }
 
-main();
+main().catch((err) => {
+  console.error("❌ Error en Puppeteer:", err);
+});
