@@ -12,9 +12,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "instagram-sync": "ts-node scripts/instagram-sync.ts",
-    "prebuild": ""
-    
+    "prebuild": "pnpm instagram-sync"   
   },
+  
   "packageManager": "pnpm@10.0.0",
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
