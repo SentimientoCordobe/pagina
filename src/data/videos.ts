@@ -8,24 +8,25 @@ export interface Video {
 }
 
 export const videos: Video[] = [
-  
   {
-    id: "2H6qksTNcCQ", 
-    titulo: "Cultural Leonesa - Córdoba: 2-1",
-resumen: "Jornada 36",    
-     miniatura: "https://img.youtube.com/vi/pEQkoJHDLDs/maxresdefault.jpg",
-    fecha: "18 de Abr 2026",
-    youtube: "https://www.youtube.com/watch?v=pEQkoJHDLDs",
-}, 
-  {
-    id: "2mJQnH9vZ0M",
-    titulo: "Córdoba - Zaragoza: 1-0",
-    resumen: "Jornada 35",    
-    miniatura: "https://img.youtube.com/vi/4y9-TAukQ8A/maxresdefault.jpg",
-    fecha: "11 Abr 2026",
-    youtube: "https://www.youtube.com/watch?v=4y9-TAukQ8A",
+    id: "OIYC9Z2_f44",
+    titulo: "Córdoba - SPORTING: 3-2",
+    resumen: "Jornada 37",    
+    miniatura: "https://img.youtube.com/vi/OIYC9Z2_f44/maxresdefault.jpg",
+    fecha: "26 Abr 2026",
+    youtube: "https://www.youtube.com/watch?v=OIYC9Z2_f44",
 
   },
+  
+  {
+    id: "a2yFkueXslc", 
+    titulo: "RUEDA DE PRENSA IVAN ANIA",
+resumen: "Jornada 36",    
+     miniatura: "https://img.youtube.com/vi/a2yFkueXslc/maxresdefault.jpg",
+    fecha: "26 de Abr 2026",
+    youtube: "https://www.youtube.com/watch?v=a2yFkueXslc",
+}, 
+  
   {
     id: "GG660uVUp_Q",
     titulo: "ASÍ se VIVE un PARTIDO en PALCO VIP del CÓRDOBA CF",
