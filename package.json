@@ -12,8 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
   "instagram-sync": "ts-node scripts/instagram-sync.ts",
-  "prebuild": "pnpm instagram-sync || echo '⚠️ fallo controlado'"
-  },
+  "prebuild": "pnpm instagram-sync || echo '⚠️ fallo controlado'"},
   "packageManager": "pnpm@10.0.0",
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

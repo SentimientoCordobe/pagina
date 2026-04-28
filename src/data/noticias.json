@@ -1,13 +1,10 @@
 [
   {
-    "id": 1,
-    "slug": "error-feed",
-    "titulo": "⚠️ Error cargando noticias",
-    "resumen": "Fallback activo",
-    "imagen": "https://via.placeholder.com/800x400",
-    "fecha": "2026-04-24T09:59:37.251Z",
-    "contenido": "",
-    "instagram": "",
-    "tipo": "post"
+    "id": "fallback-1",
+    "titulo": "Síguenos en Instagram",
+    "resumen": "Visita nuestro perfil para ver las últimas noticias",
+    "url": "https://www.instagram.com/sentimiento_cordobe/",
+    "fecha": "2026-04-28T10:33:52.444Z",
+    "fuente": "Instagram"
   }
 ]
