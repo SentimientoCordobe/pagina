@@ -1,5 +1,31 @@
 [
   {
+    "id": 123,
+    "slug": "convocatoria-cordoba-cf-sabadell-jornada-4",
+    "titulo": "22 jugadores viajan a Sabadell, con primera citación para Nélson Monte",
+    "resumen": "El central portugués, último fichaje del mercado, entra en la lista para el partido de la jornada 4. Se mantienen las mismas cinco bajas: Víctor Sánchez, Adilson, Jacobo Martí, Fomeyem y Salim El Jebari.",
+    "imagen": "/images/noticias/convocatoria-sabadell.jpg",
+    "fecha": "Sun, 06 Sep 2026 18:00:00 GMT",
+    "contenido": "El Córdoba CF ha hecho pública la lista de convocados para el partido de este lunes ante el CE Sabadell (20:30h, Nova Creu Alta), correspondiente a la jornada 4 de LALIGA Hypermotion. Un total de 22 jugadores viajan con el equipo hasta Cataluña.\n\nLa gran novedad de la lista es la primera citación para Nélson Monte, el central portugués llegado cedido desde la UD Almería en las últimas horas del mercado, que podría debutar con la camiseta blanquiverde si Iván Ania decide darle minutos.\n\nEl técnico asturiano repite las mismas cinco ausencias de las últimas semanas: Víctor Sánchez (aún sin recuperarse de su lesión), Adilson, Jacobo Martí, Fomeyem y Salim El Jebari, que continúa sin llegar al 100% de su forma física, se quedan fuera de la expedición.",
+    "fuente": "Córdoba CF (@CordobaCF_ofi, X)",
+    "url": "https://x.com/CordobaCF_ofi",
+    "tipo": "post",
+    "destacada": true
+  },
+  {
+    "id": 124,
+    "slug": "ania-previa-sabadell-equipo-muy-dificil",
+    "titulo": "Ania avisa del Sabadell: \"Es un equipo muy, muy difícil\"",
+    "resumen": "El técnico asturiano destacó la intensidad y agresividad del rival, todavía invicto y sin encajar ningún gol esta temporada, en la previa del partido de la jornada 4.",
+    "imagen": "https://img.youtube.com/vi/BXvfcFmy0xc/maxresdefault.jpg",
+    "fecha": "Sun, 06 Sep 2026 12:00:00 GMT",
+    "contenido": "Iván Ania compareció este domingo en rueda de prensa para analizar al CE Sabadell, rival del Córdoba CF este lunes (20:30h) en la Nova Creu Alta, en un partido correspondiente a la jornada 4 de LALIGA Hypermotion.\n\nEl técnico blanquiverde alertó sobre la dificultad que entraña el conjunto catalán, que todavía no ha encajado ningún gol esta temporada: \"Son muy intensos, muy agresivos en esa presión. Condicionan muchísimo a los rivales. Están muy encima, no te permiten, no te dan tiempo, tienes que pensar muy rápido\", explicó el asturiano, que no dudó en calificar al rival como \"un equipo muy, muy difícil\".\n\nAnia describió al Sabadell como un equipo de idea muy clara y definida, dispuesto en un 5-3-2 que empareja hombre a hombre en muchos tramos del partido, obligando al rival a jugar de espaldas y sin apenas hombres libres más allá del portero. Una fórmula que le ha permitido no encajar ningún gol en lo que va de curso y tumbar a uno de los favoritos de la categoría, la UD Almería.\n\nEl técnico situó ahí la clave del choque: su equipo deberá imponerse en los duelos individuales para poder generar peligro, ya que no espera que el rival varíe su planteamiento. Preguntado por el mercado de fichajes, ya cerrado, Ania prefirió pasar página con rapidez y centrar todo el foco en la preparación del partido de Sabadell.",
+    "fuente": "Rueda de prensa (vídeo) · Infobae (EFE) · Cordópolis · Web oficial Córdoba CF",
+    "url": "https://www.youtube.com/watch?v=BXvfcFmy0xc",
+    "tipo": "post",
+    "destacada": false
+  },
+  {
     "id": 118,
     "slug": "nelson-monte-cedido-almeria-cierre-mercado",
     "titulo": "El Córdoba se refuerza sobre la bocina con la cesión del central Nélson Monte",
