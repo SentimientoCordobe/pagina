@@ -30,7 +30,7 @@ export const encuestaMVP: Encuesta = {
     { id: "Eder", label: "Eder", dorsal: 28 },
     { id: "Percan", label: "Percan", dorsal: 9 },
     { id: "Iker Álvarez", label: "Iker Álvarez", dorsal: 1 },
-    { id: "Kevin Medina", label: "Kevin Medina", dorsal: 10 },
+    { id: "Kevin Medina", label: "Tasende", dorsal: 3 },
     { id: "Enol", label: "Enol", dorsal: 18 },
     { id: "Rubén Alves", label: "Rubén Alves", dorsal: 16 },
     { id: "Juanito Gutiérrez", label: "Juanito Gutiérrez", dorsal: 4 },
