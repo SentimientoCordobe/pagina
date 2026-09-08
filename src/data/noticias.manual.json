@@ -1,5 +1,18 @@
 [
   {
+    "id": 125,
+    "slug": "cordoba-tercera-derrota-sabadell-3-2",
+    "titulo": "Tercera derrota del Córdoba: otro 'harakiri' en Sabadell (3-2)",
+    "resumen": "Los blanquiverdes encajaron dos goles en los primeros 11 minutos, remontaron hasta el 2-2 con tantos de Carracedo y Enol, pero un penalti en el 89' certificó la tercera derrota del curso.",
+    "imagen": "https://pbs.twimg.com/media/HRpFKBjWQAA9Ica?format=jpg&name=900x900",
+    "fecha": "Mon, 07 Sep 2026 22:40:00 GMT",
+    "contenido": "El Córdoba CF sumó este lunes su tercera derrota del curso tras caer 3-2 ante el CE Sabadell en la Nova Creu Alta, en un partido correspondiente a la jornada 4 de LALIGA Hypermotion, en el que los de Iván Ania volvieron a pecar de la falta de solidez que viene lastrando el arranque liguero.\n\nEl inicio fue una pesadilla: Nicholas Gioacchini adelantó a los catalanes en el minuto 7 y firmó su doblete apenas cuatro minutos después, dejando un preocupante 2-0 antes del cuarto de hora de juego. El Córdoba, sin embargo, reaccionó antes del descanso: Cristian Carracedo transformó un penalti en el 26' para meter a los suyos en el partido.\n\nCon el marcador todavía en contra, Ania movió el banquillo nada más arrancar la segunda mitad, dando entrada a Juan Gutiérrez y Enol por Rubén Alves y Eder García, y pasando a un 4-4-2. El cambio surtió efecto: Enol firmó el empate en el minuto 76 para poner el 2-2, un resultado que hacía justicia al esfuerzo remontador del equipo. Pero la alegría duró poco: ya en el descuento, en el 87', el colegiado señaló penalti por mano de Carracedo tras revisar la jugada en el monitor, y Albert Cerarols no perdonó desde los once metros en el 89' para certificar el 3-2 definitivo.\n\nUn nuevo tropiezo a domicilio que deja al Córdoba con solo una victoria en sus primeras cuatro jornadas de liga, y que obliga al equipo de Ania a reaccionar cuanto antes, con la visita del Almería a El Arcángel como próxima cita el sábado.",
+    "fuente": "",
+    "url": "https://cordopolis.eldiario.es/deportes/ccf/imagenes-derrota-cordoba-cf-ce-sabadell_3_13493801.html",
+    "tipo": "post",
+    "destacada": true
+  },
+  {
     "id": 124,
     "slug": "Posible alineación del Córdoba CF contra el Sabadell en la jornada 4",
     "titulo": "Posible alineación para el Córdoba CF contra el Sabadell",
@@ -10,7 +23,7 @@
     "fuente": "",
     "url": "",
     "tipo": "post",
-    "destacada": true
+    "destacada": false
   },
   {
     "id": 123,
