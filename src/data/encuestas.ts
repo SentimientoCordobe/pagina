@@ -12,9 +12,9 @@ export interface Encuesta {
 }
 
 export const encuestaResultado: Encuesta = {
-  id: "resultado-j4-Sabadell",
-  pregunta: "Sabadell vs Córdoba CF — Jornada 4, 7 sep (Nueva Cruz Alta)",
-  cierre: "7/09/2026",
+  id: "resultado-j5-Almeria",
+  pregunta: "Córdoba CF vs Almeria — Jornada 5 , 12 sep (Nuevo Arcángel)",
+  cierre: "12/09/2026",
   opciones: [
     { id: "local", label: "Gana el Sabadell" },
     { id: "empate", label: "Empate" },
@@ -24,8 +24,8 @@ export const encuestaResultado: Encuesta = {
 
 // Encuesta de MVP de partido disputado o a disputar.
 export const encuestaMVP: Encuesta = {
-  id: "mvp-j3-Granada",
-  pregunta: "Quién fue el PEOR del Córdoba - Granada (Jornada 3)",
+  id: "mvp-j4-Sabadell",
+  pregunta: "Quién fue el PEOR del Sabadell - Córdoba (Jornada 4)",
   opciones: [
     { id: "Eder", label: "Eder", dorsal: 28 },
     { id: "Percan", label: "Percan", dorsal: 9 },
