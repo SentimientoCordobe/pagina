@@ -16,9 +16,9 @@ export const encuestaResultado: Encuesta = {
   pregunta: "Córdoba CF vs Almeria — Jornada 5 , 12 sep (Nuevo Arcángel)",
   cierre: "12/09/2026",
   opciones: [
-    { id: "local", label: "Gana el Sabadell" },
+    { id: "local", label: "Gana el Córdoba" },
     { id: "empate", label: "Empate" },
-    { id: "visitante", label: "Gana el Córdoba" },
+    { id: "visitante", label: "Gana el Almeria" },
   ],
 };
 
