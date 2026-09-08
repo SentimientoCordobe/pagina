@@ -12,6 +12,14 @@ export interface Partido {
 // ══════════════════════════════════════════════════════════════════════
 export const partidosTemporada2627: Partido[] = [
   {
+    rival: "Sabadell",
+    resultado: "3-2",
+    fecha: "07 Sep 2026",
+    youtube: "https://youtu.be/HQjOORSVTxM?si=VpXLSGDEJ97DhZuR",
+    miniatura: "https://www.youtube.com/watch?v=HQjOORSVTxM&pp=ygUdcmVzdW1lbiBkZWwgQ8OzcmRvYmEgU2FiYWRlbGw%3D",
+    local: false,
+  },
+  {
     rival: "Granada FC",
     resultado: "1-3",
     fecha: "30 Ago 2026",
